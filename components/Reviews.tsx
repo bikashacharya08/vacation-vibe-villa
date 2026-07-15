@@ -1,31 +1,43 @@
 const reviews = [
   {
-    name: "Sarah & Michael",
-    location: "New York, USA",
-    avatar: "SM",
+    name: "Krishna",
+    location: "India",
+    avatar: "Kr",
     rating: 5,
-    text: "Absolutely loved our stay! The villa was clean, comfortable, and perfectly located for exploring Chitwan National Park. The balcony view of the farm and pond at sunset was magical. Our hosts went above and beyond to make us feel welcome.",
+    date: "June 2026",
+    text: "It is a very nice experience. We enjoyed their quick response. However as we were there during second fortnight of June, the weather in Sauraha was unbearable, further complicated by power fluctuations & breakdowns. Bikki was there to receive us and helped us in leaving Sauraha by Bus. His father was also smiling and polite.",
   },
   {
-    name: "Priya & Arjun",
-    location: "Mumbai, India",
-    avatar: "PA",
+    name: "Arif",
+    location: "Kolkata, India",
+    avatar: "Ar",
     rating: 5,
-    text: "The perfect base for our Chitwan adventure. The kitchen was well-equipped for self-catering, the AC was a blessing, and having the tourist bus stop right at the gate made everything so easy. We also loved walking around the village.",
+    date: "April 2026",
+    text: "bikki is nice boy, always try to help u, great and peace place, rooms are neat and clean.. overall like, it is my home, and bikki father mother and sister also nice and friendly.",
   },
   {
-    name: "James & Emma",
-    location: "London, UK",
-    avatar: "JE",
+    name: "David",
+    location: "Hamburg, Germany",
+    avatar: "Da",
     rating: 5,
-    text: "An authentic Nepali experience without sacrificing comfort. Fast WiFi, hot water, comfy beds — everything worked perfectly. The host arranged our jungle safari and airport transfer, which took all the stress out of planning.",
+    date: "April 2026",
+    text: "it was a pleasure to meet this amazing Host and his family really enjoyed a lot discovering the area and the Safari was a big + and the nights and days with his lovely family. Planning to come soon back to attend Mr Bikki's marriage. His father mother and sister was so welcoming. Come as Guest leave as Family member. Big Thanks to them for everything they arranged for me. Also the home cooked food was so tasty. Miss the family a lot. Best stay in Saurah and entire Nepal.",
   },
   {
-    name: "Carlos & Maria",
-    location: "Barcelona, Spain",
-    avatar: "CM",
+    name: "Anita",
+    location: "Manston, United Kingdom",
+    avatar: "An",
     rating: 5,
-    text: "Staying at Vacation Vibe Villa was the highlight of our Nepal trip. Waking up to birdsong, walking through the farm, and sitting on the balcony with a book — pure bliss. We also did a day trek that the host organized. Unforgettable.",
+    date: "March 2026",
+    text: "Wonderful place, great location to stay. Biki was so helpful and friendly always there if you needed anything! His family were lovely too. We so enjoyed our stay, look forward to returning one day.",
+  },
+  {
+    name: "Di",
+    location: "",
+    avatar: "Di",
+    rating: 5,
+    date: "February 2026",
+    text: "The host was very nice, helped with the luggage, took us to the town, helped with the safari booking, it was a very pleasant holiday, by the way, Bikki's photography skills were also great! There is someone who can take pictures of him.",
   },
 ];
 
@@ -75,7 +87,9 @@ export default function Reviews() {
                   <p className="font-display text-charcoal font-semibold">
                     {review.name}
                   </p>
-                  <p className="text-stone text-sm">{review.location}</p>
+                  <p className="text-stone text-sm">
+                    {review.location}{review.location && review.date ? " · " : ""}{review.date}
+                  </p>
                 </div>
                 <div className="ml-auto">
                   <StarRating rating={review.rating} />
@@ -94,20 +108,18 @@ export default function Reviews() {
             className="inline-flex items-center gap-8 px-8 py-4 rounded-full bg-sand hover:bg-sand/80 transition-colors"
           >
             <div className="text-center">
-              <p className="text-2xl font-display text-gold">4.9</p>
+              <p className="text-2xl font-display text-gold">4.86</p>
               <p className="text-xs text-stone">Average Rating</p>
             </div>
             <div className="w-px h-8 bg-gold/20" />
             <div className="text-center">
-              <p className="text-2xl font-display text-gold">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
-              <p className="text-xs text-stone">On Airbnb</p>
+              <p className="text-2xl font-display text-gold">23</p>
+              <p className="text-xs text-stone">Reviews</p>
             </div>
             <div className="w-px h-8 bg-gold/20" />
             <div className="text-center">
-              <svg className="w-5 h-5 text-gold mx-auto" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.07 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
-              </svg>
-              <p className="text-xs text-stone">Read reviews</p>
+              <p className="text-sm font-semibold text-gold">Superhost</p>
+              <p className="text-xs text-stone">Airbnb</p>
             </div>
           </a>
         </div>
