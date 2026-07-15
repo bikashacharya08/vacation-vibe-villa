@@ -10,3 +10,6 @@ out
 next-env.d.ts
 
 .vercel
+
+# Ignore raw backup folder with sensitive guest data
+public/images/vacationvibevilla/
