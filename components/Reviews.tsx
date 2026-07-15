@@ -35,6 +35,7 @@ const reviews = [
     name: "Di",
     location: "",
     avatar: "Di",
+    noLocation: true,
     rating: 5,
     date: "February 2026",
     text: "The host was very nice, helped with the luggage, took us to the town, helped with the safari booking, it was a very pleasant holiday, by the way, Bikki's photography skills were also great! There is someone who can take pictures of him.",
@@ -88,7 +89,7 @@ export default function Reviews() {
                     {review.name}
                   </p>
                   <p className="text-stone text-sm">
-                    {review.location}{review.location && review.date ? " · " : ""}{review.date}
+                    {review.location}{!review.noLocation && review.date ? " · " : ""}{review.date}
                   </p>
                 </div>
                 <div className="ml-auto">

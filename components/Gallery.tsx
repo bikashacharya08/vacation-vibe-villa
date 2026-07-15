@@ -20,8 +20,8 @@ const images = [
     className: "md:col-span-2 md:row-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2071&auto=format&fit=crop",
-    alt: "Elephant safari in Chitwan",
+    src: "https://images.unsplash.com/photo-1586269210417-8351b5b36045?q=80&w=2070&auto=format&fit=crop",
+    alt: "Jungle wildlife in Chitwan",
     className: "md:col-span-2 md:row-span-1",
   },
   {
