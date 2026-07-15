@@ -11,8 +11,8 @@ export default function Footer() {
               Vacation Vibe Villa
             </p>
             <p className="text-sm leading-relaxed max-w-sm">
-              Where luxury meets nature. Every moment at our villa is designed
-              to create memories that last a lifetime.
+              Your home away from home in Sauraha, Chitwan — gateway to Chitwan
+              National Park and authentic Nepali village life.
             </p>
           </div>
           <div>
@@ -42,25 +42,35 @@ export default function Footer() {
               Contact
             </p>
             <ul className="space-y-3 text-sm">
-              <li>hello@vacationvibevilla.com</li>
-              <li>+1 (555) 123-4567</li>
-              <li>123 Serenity Lane</li>
-              <li>Paradise Valley, CA 90210</li>
+              <li>06 Bacchauli Road, Ratnanagar 44204</li>
+              <li>Chitwan, Bagmati Province, Nepal</li>
+              <li>
+                <a
+                  href="https://airbnb.com/h/vacationvibevilla"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-gold transition-colors"
+                >
+                  Book on Airbnb &rarr;
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm">
-            &copy; {year} Vacation Vibe Villa. All rights reserved.
+            &copy; {year} Vacation Vibe Villa — Sauraha, Chitwan, Nepal.
           </p>
           <div className="flex gap-6 text-sm">
-            <span className="hover:text-gold cursor-pointer transition-colors">
-              Privacy Policy
-            </span>
-            <span className="hover:text-gold cursor-pointer transition-colors">
-              Terms of Service
-            </span>
+            <a
+              href="https://airbnb.com/h/vacationvibevilla"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-gold transition-colors"
+            >
+              Airbnb Listing
+            </a>
           </div>
         </div>
       </div>

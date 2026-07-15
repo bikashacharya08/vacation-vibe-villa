@@ -8,7 +8,7 @@ export default function Booking() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-fixed"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1600585154084-4e5fe7c39198?q=80&w=2070&auto=format&fit=crop')",
+            "url('https://images.unsplash.com/photo-1605647540924-852290f6b0d5?q=80&w=2070&auto=format&fit=crop')",
         }}
       />
       <div className="absolute inset-0 bg-charcoal/70" />
@@ -20,12 +20,29 @@ export default function Booking() {
         <h2 className="font-display text-4xl md:text-5xl text-white leading-tight mb-6">
           Ready for an unforgettable
           <br />
-          <span className="text-gold">experience?</span>
+          <span className="text-gold">Nepal experience?</span>
         </h2>
         <p className="text-white/70 text-lg max-w-2xl mx-auto mb-10">
-          Secure your dates now. Our villa books quickly&mdash;don&rsquo;t miss
-          your chance to experience paradise.
+          Book directly on Airbnb or send us an inquiry. Either way, we&rsquo;ll
+          make sure your stay in Sauraha is nothing short of amazing.
         </p>
+
+        <div className="flex flex-wrap gap-6 justify-center mb-12">
+          <a
+            href="https://airbnb.com/h/vacationvibevilla"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gold hover:bg-gold/90 text-white px-10 py-4 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-xl hover:shadow-gold/30 hover:-translate-y-0.5"
+          >
+            Book on Airbnb
+          </a>
+          <a
+            href="#contact"
+            className="border-2 border-white/40 hover:border-white text-white px-10 py-4 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:-translate-y-0.5"
+          >
+            Send an Inquiry
+          </a>
+        </div>
 
         <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/20">
           <div className="grid md:grid-cols-3 gap-6 mb-8">
@@ -56,18 +73,19 @@ export default function Booking() {
                 <option value="2" className="text-charcoal">2 Guests</option>
                 <option value="3" className="text-charcoal">3 Guests</option>
                 <option value="4" className="text-charcoal">4 Guests</option>
-                <option value="5" className="text-charcoal">5 Guests</option>
-                <option value="6" className="text-charcoal">6 Guests</option>
-                <option value="7" className="text-charcoal">7 Guests</option>
-                <option value="8" className="text-charcoal">8 Guests</option>
               </select>
             </div>
           </div>
-          <button className="w-full bg-gold hover:bg-gold/90 text-white px-10 py-4 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-xl hover:shadow-gold/30">
-            Check Availability
-          </button>
+          <a
+            href="https://airbnb.com/h/vacationvibevilla"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full bg-gold hover:bg-gold/90 text-white px-10 py-4 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-xl hover:shadow-gold/30 text-center"
+          >
+            Check Availability on Airbnb
+          </a>
           <p className="text-white/50 text-sm mt-4">
-            No credit card required &middot; Free cancellation within 48 hours
+            Flexible check-in &amp; check-out &middot; Free cancellation on Airbnb
           </p>
         </div>
       </div>

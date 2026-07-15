@@ -15,13 +15,13 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Vacation Vibe Villa | Luxury Retreat",
+  title: "Vacation Vibe Villa | Sauraha, Chitwan – Nepal",
   description:
-    "Experience unparalleled luxury at Vacation Vibe Villa. A serene escape nestled in nature with premium amenities, stunning views, and unforgettable moments.",
+    "Experience authentic Nepali village life at Vacation Vibe Villa in Sauraha, Chitwan. Just 5 minutes from Chitwan National Park. 2 bedrooms, kitchen, balcony, farm & fish pond.",
   openGraph: {
-    title: "Vacation Vibe Villa | Luxury Retreat",
+    title: "Vacation Vibe Villa | Sauraha, Chitwan – Nepal",
     description:
-      "Experience unparalleled luxury at Vacation Vibe Villa. Book your dream getaway today.",
+      "Book your stay at Vacation Vibe Villa in Sauraha, Chitwan. Gateway to Chitwan National Park. Direct bookings & Airbnb.",
     type: "website",
   },
 };

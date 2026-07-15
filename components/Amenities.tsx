@@ -5,8 +5,8 @@ const amenities = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
       </svg>
     ),
-    title: "Infinity Pool",
-    desc: "Heated infinity pool overlooking the valley with sun loungers and cabana.",
+    title: "Fully Equipped Kitchen",
+    desc: "Cook your own meals with modern appliances, cookware, and dining essentials.",
   },
   {
     icon: (
@@ -14,8 +14,17 @@ const amenities = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    title: "Spa & Wellness",
-    desc: "In-villa massage, steam room, yoga deck, and meditation garden.",
+    title: "High-Speed WiFi",
+    desc: "Stay connected with reliable fiber internet — perfect for remote work and streaming.",
+  },
+  {
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+    title: "Air Conditioning",
+    desc: "Stay cool in Nepal's warmer months with AC units in every bedroom.",
   },
   {
     icon: (
@@ -24,35 +33,8 @@ const amenities = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z" />
       </svg>
     ),
-    title: "Outdoor Fire Pit",
-    desc: "Evening bonfire setup with marshmallows, blankets, and starlit seating.",
-  },
-  {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-      </svg>
-    ),
-    title: "Home Theater",
-    desc: "4K projector, surround sound, streaming services, and popcorn machine.",
-  },
-  {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-      </svg>
-    ),
-    title: "Modern Kitchen",
-    desc: "Fully equipped chef&rsquo;s kitchen with premium appliances and pantry.",
-  },
-  {
-    icon: (
-      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-    title: "High-Speed WiFi",
-    desc: "Dedicated fiber connection perfect for remote work and streaming.",
+    title: "Hot Water 24/7",
+    desc: "Enjoy reliable hot water for refreshing showers any time of day.",
   },
   {
     icon: (
@@ -60,8 +42,17 @@ const amenities = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
       </svg>
     ),
-    title: "Concierge Service",
-    desc: "Personal concierge for restaurant bookings, excursions, and transfers.",
+    title: "Airport Transfers",
+    desc: "Arrange pickup from Bharatpur or Kathmandu — just let us know your arrival.",
+  },
+  {
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+      </svg>
+    ),
+    title: "Private Balcony",
+    desc: "Your own outdoor space with views of the farm, pond, and golden sunsets.",
   },
   {
     icon: (
@@ -69,8 +60,17 @@ const amenities = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
       </svg>
     ),
-    title: "Private Parking",
-    desc: "Secure gated parking for up to 4 vehicles with EV charging station.",
+    title: "Free Parking",
+    desc: "Secure on-premises parking for cars, bikes, and tourist vehicles.",
+  },
+  {
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+      </svg>
+    ),
+    title: "Farm & Fish Pond",
+    desc: "Explore our little farm and pond — a slice of authentic village life on your doorstep.",
   },
 ];
 
@@ -80,16 +80,16 @@ export default function Amenities() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-gold font-medium text-sm tracking-[0.25em] uppercase mb-4">
-            Villa Amenities
+            Amenities
           </p>
           <h2 className="font-display text-4xl md:text-5xl text-charcoal leading-tight mb-4">
             Everything you need for
             <br />
-            <span className="text-gold">the perfect stay</span>
+            <span className="text-gold">a comfortable stay</span>
           </h2>
           <p className="text-stone text-lg max-w-2xl mx-auto">
-            We&rsquo;ve thought of every detail so you can focus on what matters
-            most&mdash;relaxing and making memories.
+            Self-catering kitchen, fast WiFi, hot water, AC, and a peaceful
+            village setting — all just minutes from Chitwan National Park.
           </p>
         </div>
 

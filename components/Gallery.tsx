@@ -1,37 +1,37 @@
 const images = [
   {
-    src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop",
-    alt: "Villa exterior at dusk",
+    src: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?q=80&w=2070&auto=format&fit=crop",
+    alt: "Traditional Nepali house exterior",
     className: "md:col-span-3 md:row-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1600585153490-76fb20a32601?q=80&w=2070&auto=format&fit=crop",
-    alt: "Living room interior",
+    src: "https://images.unsplash.com/photo-1582653291997-079a1c04e5a1?q=80&w=2070&auto=format&fit=crop",
+    alt: "Cozy living room interior",
     className: "md:col-span-3 md:row-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?q=80&w=2070&auto=format&fit=crop",
-    alt: "Kitchen and dining",
+    src: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2071&auto=format&fit=crop",
+    alt: "Chitwan jungle safari",
     className: "md:col-span-2 md:row-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1600607687644-c7171b42498b?q=80&w=2070&auto=format&fit=crop",
-    alt: "Bedroom suite",
+    src: "https://images.unsplash.com/photo-1536246021373-44f606b6a6b5?q=80&w=2070&auto=format&fit=crop",
+    alt: "Nepali village life",
     className: "md:col-span-2 md:row-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2070&auto=format&fit=crop",
-    alt: "Bathroom",
+    src: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2071&auto=format&fit=crop",
+    alt: "Elephant safari in Chitwan",
     className: "md:col-span-2 md:row-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?q=80&w=2080&auto=format&fit=crop",
-    alt: "Pool area",
+    src: "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?q=80&w=2069&auto=format&fit=crop",
+    alt: "Nepal mountain views",
     className: "md:col-span-3 md:row-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1600585152220-90363fe7e115?q=80&w=2070&auto=format&fit=crop",
-    alt: "Garden view",
+    src: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?q=80&w=2070&auto=format&fit=crop",
+    alt: "Village sunset",
     className: "md:col-span-3 md:row-span-2",
   },
 ];
@@ -47,7 +47,7 @@ export default function Gallery() {
           <h2 className="font-display text-4xl md:text-5xl text-charcoal leading-tight mb-4">
             A glimpse into
             <br />
-            <span className="text-gold">your escape</span>
+            <span className="text-gold">your Nepal escape</span>
           </h2>
         </div>
 

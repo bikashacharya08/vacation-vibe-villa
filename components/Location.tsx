@@ -1,33 +1,33 @@
 const attractions = [
   {
-    name: "Sunset Beach",
-    distance: "0.8 mi",
-    desc: "Pristine white sands and crystal-clear waters, perfect for morning walks and evening sunsets.",
+    name: "Chitwan National Park",
+    distance: "5 min",
+    desc: "A UNESCO World Heritage site — jungle safaris, rhinos, tigers, crocodiles, and 500+ bird species.",
   },
   {
-    name: "Mountain Trails",
-    distance: "2.3 mi",
-    desc: "Scenic hiking and biking trails through lush forests with panoramic viewpoints.",
+    name: "Elephant Safari & Breeding Center",
+    distance: "10 min",
+    desc: "Experience an elephant-back safari and visit the government elephant breeding center in Sauraha.",
   },
   {
-    name: "Downtown Market",
-    distance: "1.5 mi",
-    desc: "Local artisan market featuring fresh produce, handmade crafts, and live music.",
+    name: "Rapti River & Canoeing",
+    distance: "10 min walk",
+    desc: "Peaceful canoe rides along the Rapti River with opportunities to spot gharial crocodiles and water birds.",
   },
   {
-    name: "Golf & Country Club",
-    distance: "3.1 mi",
-    desc: "Championship 18-hole golf course with clubhouse, spa, and fine dining.",
+    name: "Tharu Cultural Village Tour",
+    distance: "5 min",
+    desc: "Visit local Tharu villages to experience traditional dance, cuisine, and daily life of Nepal's indigenous people.",
   },
   {
-    name: "Wine Valley",
-    distance: "5.0 mi",
-    desc: "Award-winning vineyards offering tours, tastings, and gourmet picnic experiences.",
+    name: "Bird Watching Tours",
+    distance: "5 min",
+    desc: "Over 500 species of birds recorded in the area. Guided birding walks available year-round.",
   },
   {
-    name: "Marina Bay",
-    distance: "4.2 mi",
-    desc: "Waterfront dining, yacht charters, fishing excursions, and sunset cruises.",
+    name: "Trekking & Hiking",
+    distance: "Various",
+    desc: "Day hikes through the Chitwan hills or multi-day treks into the surrounding countryside. Ask us for packages.",
   },
 ];
 
@@ -38,17 +38,19 @@ export default function Location() {
         <div className="grid md:grid-cols-2 gap-16 items-start">
           <div>
             <p className="text-gold font-medium text-sm tracking-[0.25em] uppercase mb-4">
-              Explore Nearby
+              Explore Sauraha &amp; Chitwan
             </p>
             <h2 className="font-display text-4xl md:text-5xl text-charcoal leading-tight mb-6">
-              Discover what&rsquo;s
+              Adventure, culture &amp; nature
               <br />
-              <span className="text-gold">around the corner</span>
+              <span className="text-gold">right on your doorstep</span>
             </h2>
             <p className="text-stone text-lg leading-relaxed mb-8">
-          Strategically located near the best attractions, our villa offers the
-          perfect blend of secluded tranquility and convenient access to
-          everything the region has to offer.
+              Vacation Vibe Villa is located in Sauraha — the main gateway to
+              Chitwan National Park. From jungle safaris to cultural village
+              tours, bird watching to trekking, everything is within easy reach.
+              Tourist coaches stop right at our gate, and we can also arrange
+              airport transfers from Bharatpur or Kathmandu.
             </p>
 
             <div className="space-y-4">
@@ -82,14 +84,14 @@ export default function Location() {
           <div className="relative md:sticky md:top-32">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.966309591936!2d-73.9854286845937!3d40.74856997932781!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b30b4b8b%3A0x7b5b5b5b5b5b5b5b!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1"
+                src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d23207.33383454832!2d85.3377024!3d27.755813800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3994ef041852b5df%3A0x33e027907a69152e!2sVacation%20Vibe%20Villa%2C%2006%20Bacchauli%20Road%2C%20Ratnanagar%2044204!3m2!1d27.5851908!2d84.5051338!5e1!3m2!1sen!2snp!4v1784145976518!5m2!1sen!2snp"
                 width="100%"
                 height="100%"
                 style={{ border: 0, minHeight: "400px" }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Villa Location"
+                title="Vacation Vibe Villa Location"
               />
             </div>
           </div>
