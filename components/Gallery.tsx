@@ -1,37 +1,37 @@
 const images = [
   {
-    src: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?q=80&w=2070&auto=format&fit=crop",
-    alt: "Traditional Nepali house exterior",
+    src: "/images/gallery-1.jpg",
+    alt: "Villa exterior",
     className: "md:col-span-3 md:row-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1582653291997-079a1c04e5a1?q=80&w=2070&auto=format&fit=crop",
-    alt: "Cozy living room interior",
+    src: "/images/gallery-2.jpg",
+    alt: "Living room interior",
     className: "md:col-span-3 md:row-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2071&auto=format&fit=crop",
-    alt: "Chitwan jungle safari",
+    src: "/images/gallery-3.jpg",
+    alt: "Bedroom",
     className: "md:col-span-2 md:row-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1536246021373-44f606b6a6b5?q=80&w=2070&auto=format&fit=crop",
-    alt: "Nepali village life",
+    src: "/images/gallery-4.jpg",
+    alt: "Balcony view",
     className: "md:col-span-2 md:row-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1586269210417-8351b5b36045?q=80&w=2070&auto=format&fit=crop",
-    alt: "Jungle wildlife in Chitwan",
+    src: "/images/gallery-5.jpg",
+    alt: "Kitchen",
     className: "md:col-span-2 md:row-span-1",
   },
   {
-    src: "https://images.unsplash.com/photo-1600269452121-4f2416e55c28?q=80&w=2069&auto=format&fit=crop",
-    alt: "Nepal mountain views",
+    src: "/images/gallery-6.jpg",
+    alt: "Farm & garden",
     className: "md:col-span-3 md:row-span-2",
   },
   {
-    src: "https://images.unsplash.com/photo-1605647540924-852290f6b0d5?q=80&w=2070&auto=format&fit=crop",
-    alt: "Village sunset",
+    src: "/images/gallery-7.jpg",
+    alt: "Sunset from balcony",
     className: "md:col-span-3 md:row-span-2",
   },
 ];

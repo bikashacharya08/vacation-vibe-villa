@@ -76,8 +76,8 @@ export default function About() {
           <div className="relative">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?q=80&w=2070&auto=format&fit=crop"
-                alt="Traditional Nepali home"
+                src="/images/about-villa.jpg"
+                alt="Vacation Vibe Villa"
                 className="w-full h-full object-cover"
               />
             </div>
