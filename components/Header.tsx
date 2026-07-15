@@ -28,10 +28,14 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        <a href="#hero" className="flex items-center gap-2">
-          <span className="text-2xl">&#x2728;</span>
+        <a href="#hero" className="flex items-center gap-3">
+          <img
+            src="/images/logo.png"
+            alt="Vacation Vibe Villa"
+            className="h-8 w-auto"
+          />
           <span
-            className={`font-display text-xl tracking-wide transition-colors duration-300 ${
+            className={`font-display text-lg tracking-wide transition-colors duration-300 hidden sm:inline ${
               scrolled ? "text-charcoal" : "text-white"
             }`}
           >

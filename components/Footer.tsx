@@ -6,8 +6,12 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-2">
-            <span className="text-2xl">&#x2728;</span>
-            <p className="font-display text-white text-xl mt-3 mb-4">
+            <img
+              src="/images/logo.png"
+              alt="Vacation Vibe Villa"
+              className="h-10 w-auto"
+            />
+            <p className="font-display text-white text-xl mt-4 mb-4">
               Vacation Vibe Villa
             </p>
             <p className="text-sm leading-relaxed max-w-sm">

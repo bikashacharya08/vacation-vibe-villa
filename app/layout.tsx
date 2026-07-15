@@ -15,14 +15,20 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://vacation-vibe-villa.vercel.app"),
   title: "Vacation Vibe Villa | Sauraha, Chitwan – Nepal",
   description:
     "Experience authentic Nepali village life at Vacation Vibe Villa in Sauraha, Chitwan. Just 5 minutes from Chitwan National Park. 2 bedrooms, kitchen, balcony, farm & fish pond.",
+  icons: {
+    icon: "/images/favicon.png",
+    apple: "/images/favicon.png",
+  },
   openGraph: {
     title: "Vacation Vibe Villa | Sauraha, Chitwan – Nepal",
     description:
       "Book your stay at Vacation Vibe Villa in Sauraha, Chitwan. Gateway to Chitwan National Park. Direct bookings & Airbnb.",
     type: "website",
+    images: ["/images/hero-bg.jpg"],
   },
 };
 
