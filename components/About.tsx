@@ -78,6 +78,8 @@ export default function About() {
               <img
                 src="/images/about-villa.jpg"
                 alt="Vacation Vibe Villa"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>

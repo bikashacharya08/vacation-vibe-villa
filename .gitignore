@@ -13,3 +13,11 @@ next-env.d.ts
 
 # Ignore raw backup folder with sensitive guest data
 public/images/vacationvibevilla/
+
+/app/generated/prisma
+
+# SQLite database files
+dev.db
+prisma/dev.db
+*.db
+*.db-journal

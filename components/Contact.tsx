@@ -1,3 +1,7 @@
+"use client";
+
+import { useState, FormEvent } from "react";
+
 const contactInfo = [
   {
     icon: (
@@ -6,8 +10,8 @@ const contactInfo = [
       </svg>
     ),
     label: "Inquiries",
-    value: "Message us on Airbnb",
-    action: "https://airbnb.com/h/vacationvibevilla",
+    value: "vacationvibevilla@gmail.com",
+    action: "mailto:vacationvibevilla@gmail.com",
   },
   {
     icon: (
@@ -40,6 +44,28 @@ const contactInfo = [
 ];
 
 export default function Contact() {
+  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
+  const [sending, setSending] = useState(false);
+  const [done, setDone] = useState(false);
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    setSending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setDone(true);
+        setForm({ firstName: "", lastName: "", email: "", message: "" });
+      }
+    } finally {
+      setSending(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-28 md:py-36 px-6 bg-cream">
       <div className="max-w-7xl mx-auto">
@@ -54,13 +80,13 @@ export default function Contact() {
           </h2>
           <p className="text-stone text-lg max-w-2xl mx-auto">
             Want to check availability, ask about activities, or arrange
-            something special? Reach out to us on Airbnb or use the form below.
+            something special? Send us a message using the form below.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-charcoal mb-2">
@@ -68,6 +94,9 @@ export default function Contact() {
                   </label>
                   <input
                     type="text"
+                    required
+                    value={form.firstName}
+                    onChange={(e) => setForm({ ...form, firstName: e.target.value })}
                     className="w-full px-4 py-3.5 rounded-xl bg-white border border-sand focus:outline-none focus:border-gold transition-colors text-charcoal"
                     placeholder="John"
                   />
@@ -78,6 +107,9 @@ export default function Contact() {
                   </label>
                   <input
                     type="text"
+                    required
+                    value={form.lastName}
+                    onChange={(e) => setForm({ ...form, lastName: e.target.value })}
                     className="w-full px-4 py-3.5 rounded-xl bg-white border border-sand focus:outline-none focus:border-gold transition-colors text-charcoal"
                     placeholder="Doe"
                   />
@@ -89,6 +121,9 @@ export default function Contact() {
                 </label>
                 <input
                   type="email"
+                  required
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
                   className="w-full px-4 py-3.5 rounded-xl bg-white border border-sand focus:outline-none focus:border-gold transition-colors text-charcoal"
                   placeholder="john@example.com"
                 />
@@ -98,16 +133,20 @@ export default function Contact() {
                   Message
                 </label>
                 <textarea
+                  required
                   rows={5}
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
                   className="w-full px-4 py-3.5 rounded-xl bg-white border border-sand focus:outline-none focus:border-gold transition-colors text-charcoal resize-none"
                   placeholder="Tell us about your plans — dates, group size, activities you're interested in..."
                 />
               </div>
               <button
                 type="submit"
-                className="w-full bg-charcoal hover:bg-charcoal/90 text-white px-10 py-4 rounded-xl text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-xl"
+                disabled={sending}
+                className="w-full bg-charcoal hover:bg-charcoal/90 text-white px-10 py-4 rounded-xl text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-xl disabled:opacity-50"
               >
-                Send Message
+                {done ? "Message Sent!" : sending ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>
@@ -139,20 +178,6 @@ export default function Contact() {
                 </div>
               </div>
             ))}
-
-            <div className="pt-8 border-t border-sand">
-              <p className="text-sm text-stone mb-4">Find us on</p>
-              <div className="flex flex-wrap gap-4">
-                <a
-                  href="https://airbnb.com/h/vacationvibevilla"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-stone hover:text-gold cursor-pointer transition-colors font-medium"
-                >
-                  Airbnb
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </div>

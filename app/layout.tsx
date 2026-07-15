@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Vacation Vibe Villa | Sauraha, Chitwan – Nepal",
     description:
-      "Book your stay at Vacation Vibe Villa in Sauraha, Chitwan. Gateway to Chitwan National Park. Direct bookings & Airbnb.",
+      "Book your stay at Vacation Vibe Villa in Sauraha, Chitwan. Gateway to Chitwan National Park. Direct bookings only.",
     type: "website",
     images: ["/images/hero-bg.jpg"],
   },
@@ -37,6 +37,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
+      <head>
+        <link rel="preload" href="/images/hero-bg.jpg" as="image" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body className="antialiased">{children}</body>
     </html>
   );

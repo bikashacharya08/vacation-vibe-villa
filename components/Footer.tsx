@@ -48,16 +48,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li>06 Bacchauli Road, Ratnanagar 44204</li>
               <li>Chitwan, Bagmati Province, Nepal</li>
-              <li>
-                <a
-                  href="https://airbnb.com/h/vacationvibevilla"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gold transition-colors"
-                >
-                  Book on Airbnb &rarr;
-                </a>
-              </li>
+              <li>Book direct — best rates guaranteed</li>
             </ul>
           </div>
         </div>
@@ -66,16 +57,7 @@ export default function Footer() {
           <p className="text-sm">
             &copy; {year} Vacation Vibe Villa — Sauraha, Chitwan, Nepal.
           </p>
-          <div className="flex gap-6 text-sm">
-            <a
-              href="https://airbnb.com/h/vacationvibevilla"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-gold transition-colors"
-            >
-              Airbnb Listing
-            </a>
-          </div>
+          <div className="flex gap-6 text-sm"></div>
         </div>
       </div>
     </footer>

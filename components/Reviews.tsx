@@ -102,12 +102,7 @@ export default function Reviews() {
         </div>
 
         <div className="text-center mt-12">
-          <a
-            href="https://airbnb.com/h/vacationvibevilla"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-8 px-8 py-4 rounded-full bg-sand hover:bg-sand/80 transition-colors"
-          >
+          <div className="inline-flex items-center gap-8 px-8 py-4 rounded-full bg-sand">
             <div className="text-center">
               <p className="text-2xl font-display text-gold">4.86</p>
               <p className="text-xs text-stone">Average Rating</p>
@@ -117,12 +112,7 @@ export default function Reviews() {
               <p className="text-2xl font-display text-gold">23</p>
               <p className="text-xs text-stone">Reviews</p>
             </div>
-            <div className="w-px h-8 bg-gold/20" />
-            <div className="text-center">
-              <p className="text-sm font-semibold text-gold">Superhost</p>
-              <p className="text-xs text-stone">Airbnb</p>
-            </div>
-          </a>
+          </div>
         </div>
       </div>
     </section>

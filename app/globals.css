@@ -43,20 +43,6 @@ h1, h2, h3, h4 {
   );
 }
 
-.image-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1rem;
-}
-
-.image-grid .tall {
-  grid-row: span 2;
-}
-
-.image-grid .wide {
-  grid-column: span 2;
-}
-
 @keyframes fadeInUp {
   from {
     opacity: 0;

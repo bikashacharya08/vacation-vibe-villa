@@ -1,37 +1,37 @@
 const images = [
   {
     src: "/images/gallery-1.jpg",
-    alt: "Villa exterior",
+    alt: "One-horned rhino in Chitwan",
     className: "md:col-span-3 md:row-span-2",
   },
   {
     src: "/images/gallery-2.jpg",
-    alt: "Living room interior",
+    alt: "Bengal tiger in the wild",
     className: "md:col-span-3 md:row-span-2",
   },
   {
     src: "/images/gallery-3.jpg",
-    alt: "Bedroom",
+    alt: "Bengal tiger close-up",
     className: "md:col-span-2 md:row-span-1",
   },
   {
     src: "/images/gallery-4.jpg",
-    alt: "Balcony view",
+    alt: "Two one-horned rhinos",
     className: "md:col-span-2 md:row-span-1",
   },
   {
     src: "/images/gallery-5.jpg",
-    alt: "Kitchen",
+    alt: "Tiger resting in jungle",
     className: "md:col-span-2 md:row-span-1",
   },
   {
     src: "/images/gallery-6.jpg",
-    alt: "Farm & garden",
+    alt: "Asian elephant in nature",
     className: "md:col-span-3 md:row-span-2",
   },
   {
     src: "/images/gallery-7.jpg",
-    alt: "Sunset from balcony",
+    alt: "Chitwan jungle sunset",
     className: "md:col-span-3 md:row-span-2",
   },
 ];
@@ -60,6 +60,8 @@ export default function Gallery() {
               <img
                 src={img.src}
                 alt={img.alt}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500" />
