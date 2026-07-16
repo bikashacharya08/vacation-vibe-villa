@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -6,9 +8,11 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           <div className="md:col-span-2">
-            <img
+            <Image
               src="/images/logo.png"
               alt="Vacation Vibe Villa"
+              width={200}
+              height={40}
               className="h-10 w-auto"
             />
             <p className="font-display text-white text-xl mt-4 mb-4">

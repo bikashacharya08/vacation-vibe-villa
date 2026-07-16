@@ -1,23 +1,47 @@
 import jwt from "jsonwebtoken";
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-const JWT_SECRET = process.env.JWT_SECRET || "villa-secret-key-change-in-production";
+function getSecret(): string {
+  const secret = process.env.JWT_SECRET;
+  if (!secret) throw new Error("JWT_SECRET environment variable is required");
+  return secret;
+}
 
 export function signToken(adminId: number) {
-  return jwt.sign({ id: adminId }, JWT_SECRET, { expiresIn: "7d" });
+  return jwt.sign({ id: adminId }, getSecret(), { expiresIn: "7d" });
 }
 
 export function verifyToken(token: string) {
   try {
-    return jwt.verify(token, JWT_SECRET) as { id: number };
+    return jwt.verify(token, getSecret()) as { id: number };
   } catch {
     return null;
   }
 }
 
 export function getAdminId(request: NextRequest): number | null {
-  const auth = request.headers.get("authorization");
-  if (!auth?.startsWith("Bearer ")) return null;
-  const payload = verifyToken(auth.slice(7));
+  const token = request.cookies.get("admin_token")?.value;
+  if (!token) return null;
+  const payload = verifyToken(token);
   return payload?.id ?? null;
+}
+
+export function setAuthCookie(response: NextResponse, token: string) {
+  response.cookies.set("admin_token", token, {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    path: "/",
+    maxAge: 60 * 60 * 24 * 7,
+  });
+}
+
+export function clearAuthCookie(response: NextResponse) {
+  response.cookies.set("admin_token", "", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    path: "/",
+    maxAge: 0,
+  });
 }

@@ -1,26 +1,44 @@
 import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 import bcrypt from "bcryptjs";
-import { prisma } from "@/lib/prisma";
-import { signToken } from "@/lib/auth";
+import { withDb } from "@/lib/prisma";
+import { signToken, setAuthCookie } from "@/lib/auth";
+import { errorResponse, corsResponse, withCors } from "@/lib/api-utils";
+
+const schema = z.object({
+  username: z.string().min(1).max(100),
+  password: z.string().min(1).max(200),
+});
+
+export async function OPTIONS() {
+  return corsResponse();
+}
 
 export async function POST(request: NextRequest) {
   try {
-    const { username, password } = await request.json();
-
-    const admin = await prisma.admin.findUnique({ where: { username } });
-    if (!admin) {
-      return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
+    const body = await request.json();
+    const parsed = schema.safeParse(body);
+    if (!parsed.success) {
+      return withCors(errorResponse("Invalid credentials", 401));
     }
 
-    const valid = await bcrypt.compare(password, admin.password);
+    const admin = await withDb((prisma) => prisma.admin.findUnique({ where: { username: parsed.data.username } }));
+    if (!admin) {
+      return withCors(errorResponse("Invalid credentials", 401));
+    }
+
+    const valid = await bcrypt.compare(parsed.data.password, admin.password);
     if (!valid) {
-      return NextResponse.json({ error: "Invalid credentials" }, { status: 401 });
+      return withCors(errorResponse("Invalid credentials", 401));
     }
 
     const token = signToken(admin.id);
+    const response = NextResponse.json({ success: true });
+    setAuthCookie(response, token);
 
-    return NextResponse.json({ token });
-  } catch {
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+    return withCors(response);
+  } catch (err) {
+    console.error("Login API error:", err);
+    return withCors(errorResponse("Internal server error", 500));
   }
 }

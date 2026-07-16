@@ -1,56 +1,71 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 
 type Message = { id: number; firstName: string; lastName: string; email: string; message: string; read: boolean; createdAt: string };
 type Booking = { id: number; name: string; email: string; phone: string; checkIn: string; checkOut: string; guests: number; message: string; status: string; createdAt: string };
 
+function Spinner() {
+  return (
+    <div className="flex items-center justify-center py-16" role="status">
+      <div className="w-8 h-8 border-4 border-gold border-t-transparent rounded-full animate-spin" />
+      <span className="sr-only">Loading...</span>
+    </div>
+  );
+}
+
 export default function AdminDashboard() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [tab, setTab] = useState<"messages" | "bookings">("messages");
-  const [authed, setAuthed] = useState(false);
+  const [authed, setAuthed] = useState<boolean | null>(null);
+  const [actionMsg, setActionMsg] = useState<string | null>(null);
   const router = useRouter();
 
-  useEffect(() => {
-    const token = localStorage.getItem("admin_token");
-    if (!token) { router.push("/admin/login"); return; }
-
-    const headers = { Authorization: `Bearer ${token}` };
-    Promise.all([
-      fetch("/api/admin/messages", { headers }).then((r) => { if (!r.ok) throw Error(); return r.json(); }),
-      fetch("/api/admin/bookings", { headers }).then((r) => { if (!r.ok) throw Error(); return r.json(); }),
-    ])
-      .then(([msgs, bks]) => { setMessages(msgs); setBookings(bks); setAuthed(true); })
-      .catch(() => { localStorage.removeItem("admin_token"); router.push("/admin/login"); });
+  const fetchData = useCallback(async () => {
+    try {
+      const [msgs, bks] = await Promise.all([
+        fetch("/api/admin/messages").then((r) => { if (r.status === 401) throw new Error("unauth"); return r.json(); }),
+        fetch("/api/admin/bookings").then((r) => { if (r.status === 401) throw new Error("unauth"); return r.json(); }),
+      ]);
+      setMessages(msgs);
+      setBookings(bks);
+      setAuthed(true);
+    } catch {
+      setAuthed(false);
+      router.push("/admin/login");
+    }
   }, [router]);
 
+  useEffect(() => { fetchData(); }, [fetchData]);
+
   const markRead = async (id: number) => {
-    const token = localStorage.getItem("admin_token");
     await fetch("/api/admin/messages", {
       method: "PATCH",
-      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id }),
     });
     setMessages((prev) => prev.map((m) => (m.id === id ? { ...m, read: true } : m)));
   };
 
   const updateStatus = async (id: number, status: string) => {
-    const token = localStorage.getItem("admin_token");
     await fetch("/api/admin/bookings", {
       method: "PATCH",
-      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id, status }),
     });
     setBookings((prev) => prev.map((b) => (b.id === id ? { ...b, status } : b)));
+    setActionMsg(`Booking #${id} ${status}`);
+    setTimeout(() => setActionMsg(null), 3000);
   };
 
-  const logout = () => {
-    localStorage.removeItem("admin_token");
+  const logout = async () => {
+    await fetch("/api/admin/logout", { method: "POST" });
     router.push("/admin/login");
   };
 
+  if (authed === null) return <Spinner />;
   if (!authed) return null;
 
   return (
@@ -59,16 +74,24 @@ export default function AdminDashboard() {
         <h1 className="font-display text-xl text-charcoal">Admin Dashboard</h1>
         <div className="flex gap-4 items-center">
           <button onClick={() => setTab("messages")}
+            aria-pressed={tab === "messages"}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tab === "messages" ? "bg-gold text-white" : "text-stone hover:text-charcoal"}`}>
             Messages ({messages.length})
           </button>
           <button onClick={() => setTab("bookings")}
+            aria-pressed={tab === "bookings"}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${tab === "bookings" ? "bg-gold text-white" : "text-stone hover:text-charcoal"}`}>
             Bookings ({bookings.length})
           </button>
           <button onClick={logout} className="text-sm text-stone hover:text-red-500 transition-colors">Logout</button>
         </div>
       </header>
+
+      {actionMsg && (
+        <div className="max-w-6xl mx-auto px-6 pt-4" role="status">
+          <p className="bg-green-50 text-green-700 text-sm rounded-lg px-4 py-2">{actionMsg}</p>
+        </div>
+      )}
 
       <main className="max-w-6xl mx-auto px-6 py-10">
         {tab === "messages" && (
@@ -111,8 +134,8 @@ export default function AdminDashboard() {
                   </span>
                 </div>
                 <div className="grid sm:grid-cols-4 gap-3 text-sm text-stone mb-3">
-                  <div><span className="font-medium text-charcoal">Check-in:</span> {b.checkIn}</div>
-                  <div><span className="font-medium text-charcoal">Check-out:</span> {b.checkOut}</div>
+                  <div><span className="font-medium text-charcoal">Check-in:</span> <time>{b.checkIn}</time></div>
+                  <div><span className="font-medium text-charcoal">Check-out:</span> <time>{b.checkOut}</time></div>
                   <div><span className="font-medium text-charcoal">Guests:</span> {b.guests}</div>
                   <div><span className="font-medium text-charcoal">Received:</span> {new Date(b.createdAt).toLocaleDateString()}</div>
                 </div>

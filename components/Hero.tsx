@@ -1,17 +1,20 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <section
       id="hero"
       className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden"
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-        style={{
-          backgroundImage:
-            "url('/images/hero-bg.jpg')",
-        }}
+      <Image
+        src="/images/hero-bg.jpg"
+        alt="Vacation Vibe Villa"
+        fill
+        sizes="100vw"
+        priority
+        className="object-cover scale-105"
       />
-      <div className="hero-overlay absolute inset-0" />
+      <div className="hero-overlay absolute inset-0 z-[1]" />
 
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <p className="text-gold-light font-medium text-sm md:text-base tracking-[0.3em] uppercase mb-4 animate-in">

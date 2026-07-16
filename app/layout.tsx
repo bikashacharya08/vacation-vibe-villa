@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     description:
       "Book your stay at Vacation Vibe Villa in Sauraha, Chitwan. Gateway to Chitwan National Park. Direct bookings only.",
     type: "website",
-    images: ["/images/hero-bg.jpg"],
+    images: ["https://vacation-vibe-villa.vercel.app/images/hero-bg.jpg"],
   },
 };
 

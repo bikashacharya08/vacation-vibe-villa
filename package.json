@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "seed": "node scripts/seed.mjs",
+    "seed": "tsx scripts/seed.ts",
     "db:push": "npx prisma db push",
     "postinstall": "npx prisma generate"
   },
@@ -22,7 +22,8 @@
     "prisma": "^7.8.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-    "sharp": "^0.35.3"
+    "sharp": "^0.35.3",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.4",

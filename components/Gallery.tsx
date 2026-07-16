@@ -25,7 +25,7 @@ const images = [
     className: "md:col-span-2 md:row-span-1",
   },
   {
-    src: "/images/gallery-6.jpg",
+    src: "/images/Giants/elephant-1.jpg",
     alt: "Asian elephant in nature",
     className: "md:col-span-3 md:row-span-2",
   },
@@ -35,6 +35,8 @@ const images = [
     className: "md:col-span-3 md:row-span-2",
   },
 ];
+
+import Image from "next/image";
 
 export default function Gallery() {
   return (
@@ -57,12 +59,12 @@ export default function Gallery() {
               key={img.alt}
               className={`${img.className} group relative overflow-hidden rounded-2xl cursor-pointer`}
             >
-              <img
+              <Image
                 src={img.src}
                 alt={img.alt}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-500" />
               <div className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">

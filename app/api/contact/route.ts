@@ -1,20 +1,32 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { z } from "zod";
+import { withDb } from "@/lib/prisma";
+import { errorResponse, corsResponse, withCors } from "@/lib/api-utils";
+
+const schema = z.object({
+  firstName: z.string().min(1).max(100),
+  lastName: z.string().min(1).max(100),
+  email: z.string().email().max(255),
+  message: z.string().min(1).max(5000),
+});
+
+export async function OPTIONS() {
+  return corsResponse();
+}
 
 export async function POST(request: NextRequest) {
   try {
-    const { firstName, lastName, email, message } = await request.json();
-
-    if (!firstName || !lastName || !email || !message) {
-      return NextResponse.json({ error: "All fields are required" }, { status: 400 });
+    const body = await request.json();
+    const parsed = schema.safeParse(body);
+    if (!parsed.success) {
+      return withCors(errorResponse("Validation failed: " + parsed.error.issues.map((e) => e.message).join(", "), 400));
     }
 
-    await prisma.message.create({
-      data: { firstName, lastName, email, message },
-    });
+    await withDb((prisma) => prisma.message.create({ data: parsed.data }));
 
-    return NextResponse.json({ success: true });
-  } catch {
-    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
+    return withCors(NextResponse.json({ success: true }));
+  } catch (err) {
+    console.error("Contact API error:", err);
+    return withCors(errorResponse("Internal server error", 500));
   }
 }
