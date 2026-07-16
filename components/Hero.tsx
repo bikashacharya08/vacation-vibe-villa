@@ -32,7 +32,7 @@ export default function Hero() {
         </p>
         <div className="flex flex-wrap gap-4 justify-center animate-in">
           <a
-            href="#contact"
+            href="#booking"
             className="bg-gold hover:bg-gold/90 text-white px-10 py-4 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-xl hover:shadow-gold/30 hover:-translate-y-0.5"
           >
             Book Now
