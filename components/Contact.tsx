@@ -7,8 +7,8 @@ const contactInfo = [
   {
     icon: MailIcon,
     label: "Inquiries",
-    value: "vacationvibevilla@gmail.com",
-    action: "mailto:vacationvibevilla@gmail.com",
+    value: "livewithbikki@gmail.com",
+    action: "mailto:livewithbikki@gmail.com",
   },
   {
     icon: LocationIcon,
