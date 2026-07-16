@@ -74,39 +74,50 @@ const amenities = [
   },
 ];
 
+import Reveal from "./Reveal";
+
 export default function Amenities() {
   return (
-    <section id="amenities" className="py-28 md:py-36 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-gold font-medium text-sm tracking-[0.25em] uppercase mb-4">
-            Amenities
-          </p>
-          <h2 className="font-display text-4xl md:text-5xl text-charcoal leading-tight mb-4">
-            Everything you need for
-            <br />
-            <span className="text-gold">a comfortable stay</span>
-          </h2>
-          <p className="text-stone text-lg max-w-2xl mx-auto">
-            Self-catering kitchen, fast WiFi, hot water, AC, and a peaceful
-            village setting — all just minutes from Chitwan National Park.
-          </p>
+    <section id="amenities" className="py-32 md:py-48 px-6 bg-white overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-16 md:gap-24 mb-24">
+          <div className="md:w-1/3">
+            <Reveal>
+              <p className="text-charcoal font-semibold text-xs tracking-[0.25em] uppercase mb-6">
+                Amenities & Services
+              </p>
+              <h2 className="font-display text-4xl md:text-6xl text-charcoal leading-[1.1] mb-6">
+                Redefining
+                <br />
+                <span className="italic text-gold">Comfort</span>
+              </h2>
+            </Reveal>
+          </div>
+          <div className="md:w-2/3 flex flex-col justify-center">
+            <Reveal delay={200}>
+              <p className="text-stone text-lg md:text-xl font-light leading-relaxed max-w-xl">
+                Experience the perfect blend of rustic Nepali charm and modern convenience. 
+                Our villa is thoughtfully equipped to ensure an effortless, relaxing, and memorable stay.
+              </p>
+            </Reveal>
+          </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {amenities.map((item) => (
-            <div
-              key={item.title}
-              className="group p-6 rounded-2xl bg-cream hover:bg-gold/5 border border-transparent hover:border-gold/20 transition-all duration-300"
-            >
-              <div className="text-gold mb-4 group-hover:scale-110 transition-transform duration-300">
-                {item.icon}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-20">
+          {amenities.map((item, index) => (
+            <Reveal key={item.title} delay={index * 100}>
+              <div className="group border-t border-charcoal/10 pt-8 hover:border-gold transition-colors duration-500">
+                <div className="text-charcoal group-hover:text-gold mb-6 transition-colors duration-500">
+                  {item.icon}
+                </div>
+                <h3 className="font-display text-xl md:text-2xl text-charcoal mb-4">
+                  {item.title}
+                </h3>
+                <p className="text-stone text-sm md:text-base font-light leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
-              <h3 className="font-display text-lg text-charcoal mb-2">
-                {item.title}
-              </h3>
-              <p className="text-stone text-sm leading-relaxed">{item.desc}</p>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

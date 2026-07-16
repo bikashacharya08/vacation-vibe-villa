@@ -27,6 +27,8 @@ const contactInfo = [
   },
 ];
 
+import Reveal from "./Reveal";
+
 export default function Contact() {
   const [form, setForm] = useState({ firstName: "", lastName: "", email: "", message: "" });
   const [sending, setSending] = useState(false);
@@ -58,130 +60,125 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-28 md:py-36 px-6 bg-cream">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-gold font-medium text-sm tracking-[0.25em] uppercase mb-4">
-            Get in Touch
-          </p>
-          <h2 className="font-display text-4xl md:text-5xl text-charcoal leading-tight mb-4">
-            Questions? We&rsquo;re
-            <br />
-            <span className="text-gold">here to help</span>
-          </h2>
-          <p className="text-stone text-lg max-w-2xl mx-auto">
-            Want to check availability, ask about activities, or arrange
-            something special? Send us a message using the form below.
-          </p>
-        </div>
+    <section id="contact" className="py-32 md:py-48 px-6 bg-sand overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        <Reveal>
+          <div className="text-center mb-24">
+            <p className="text-charcoal font-semibold text-xs tracking-[0.25em] uppercase mb-6">
+              Get in Touch
+            </p>
+            <h2 className="font-display text-4xl md:text-6xl text-charcoal leading-[1.1]">
+              At Your
+              <br />
+              <span className="italic text-gold">Service</span>
+            </h2>
+          </div>
+        </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <div>
-            {error && <p className="bg-red-50 text-red-600 text-sm text-center rounded-lg px-4 py-2 mb-4" role="alert">{error}</p>}
-            <form className="space-y-6" onSubmit={handleSubmit} noValidate>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label htmlFor="contact-first" className="block text-sm font-medium text-charcoal mb-2">
-                    First Name
-                  </label>
+        <div className="grid md:grid-cols-2 gap-16 md:gap-24">
+          <Reveal delay={200}>
+            {error && <p className="bg-red-50 text-red-600 text-sm border border-red-200 text-center rounded-none px-4 py-3 mb-8" role="alert">{error}</p>}
+            <form className="space-y-10" onSubmit={handleSubmit} noValidate>
+              <div className="grid sm:grid-cols-2 gap-10">
+                <div className="relative">
                   <input
                     id="contact-first"
                     type="text"
                     required
                     value={form.firstName}
                     onChange={(e) => setForm({ ...form, firstName: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-xl bg-white border border-sand focus:outline-none focus:border-gold transition-colors text-charcoal"
-                    placeholder="John"
+                    className="w-full pb-3 bg-transparent text-charcoal placeholder:text-stone/60 border-b border-charcoal/20 focus:border-gold focus:outline-none transition-colors rounded-none text-sm font-light"
+                    placeholder="First Name *"
                   />
                 </div>
-                <div>
-                  <label htmlFor="contact-last" className="block text-sm font-medium text-charcoal mb-2">
-                    Last Name
-                  </label>
+                <div className="relative">
                   <input
                     id="contact-last"
                     type="text"
                     required
                     value={form.lastName}
                     onChange={(e) => setForm({ ...form, lastName: e.target.value })}
-                    className="w-full px-4 py-3.5 rounded-xl bg-white border border-sand focus:outline-none focus:border-gold transition-colors text-charcoal"
-                    placeholder="Doe"
+                    className="w-full pb-3 bg-transparent text-charcoal placeholder:text-stone/60 border-b border-charcoal/20 focus:border-gold focus:outline-none transition-colors rounded-none text-sm font-light"
+                    placeholder="Last Name *"
                   />
                 </div>
               </div>
-              <div>
-                <label htmlFor="contact-email" className="block text-sm font-medium text-charcoal mb-2">
-                  Email
-                </label>
+              <div className="relative">
                 <input
                   id="contact-email"
                   type="email"
                   required
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full px-4 py-3.5 rounded-xl bg-white border border-sand focus:outline-none focus:border-gold transition-colors text-charcoal"
-                  placeholder="john@example.com"
+                  className="w-full pb-3 bg-transparent text-charcoal placeholder:text-stone/60 border-b border-charcoal/20 focus:border-gold focus:outline-none transition-colors rounded-none text-sm font-light"
+                  placeholder="Email Address *"
                 />
               </div>
-              <div>
-                <label htmlFor="contact-message" className="block text-sm font-medium text-charcoal mb-2">
-                  Message
-                </label>
+              <div className="relative">
                 <textarea
                   id="contact-message"
                   required
-                  rows={5}
+                  rows={4}
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
-                  className="w-full px-4 py-3.5 rounded-xl bg-white border border-sand focus:outline-none focus:border-gold transition-colors text-charcoal resize-none"
-                  placeholder="Tell us about your plans &mdash; dates, group size, activities you&rsquo;re interested in..."
+                  className="w-full pb-3 bg-transparent text-charcoal placeholder:text-stone/60 border-b border-charcoal/20 focus:border-gold focus:outline-none transition-colors rounded-none resize-none text-sm font-light"
+                  placeholder="How can we assist you? *"
                 />
               </div>
-              <button
-                type="submit"
-                disabled={sending || done}
-                className="w-full bg-charcoal hover:bg-charcoal/90 text-white px-10 py-4 rounded-xl text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-xl disabled:opacity-50"
-              >
-                {done ? "Message Sent!" : sending ? "Sending..." : "Send Message"}
-              </button>
+              
+              <div className="pt-4">
+                <button
+                  type="submit"
+                  disabled={sending || done}
+                  className="w-full bg-charcoal hover:bg-gold text-white px-10 py-5 text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-500 disabled:opacity-50"
+                >
+                  {done ? "Message Sent" : sending ? "Sending..." : "Submit Inquiry"}
+                </button>
+              </div>
+
               {done && (
-                <div className="mt-4 text-charcoal text-sm bg-gold/10 p-5 rounded-xl border border-gold/30">
-                  <p className="font-semibold text-lg mb-1">Message received!</p>
-                  <p className="leading-relaxed">
-                    The host will contact you within 12 hours. If you want faster contact, you can text directly on WhatsApp: 
-                    <a href="https://wa.me/9779865345753" target="_blank" rel="noopener noreferrer" className="text-gold font-medium hover:underline ml-1">+977-9865345753</a>.
-                  </p>
-                </div>
+                <Reveal>
+                  <div className="mt-8 text-charcoal text-sm bg-white p-8 border border-charcoal/10 text-center shadow-sm">
+                    <p className="font-display text-2xl text-gold mb-2">Message Received</p>
+                    <p className="leading-relaxed font-light">
+                      The host will contact you within 12 hours. If you want faster contact, you can text directly on WhatsApp: 
+                      <br/>
+                      <a href="https://wa.me/9779865345753" target="_blank" rel="noopener noreferrer" className="text-gold font-medium hover:underline mt-2 inline-block tracking-widest">+977-9865345753</a>
+                    </p>
+                  </div>
+                </Reveal>
               )}
             </form>
-          </div>
+          </Reveal>
 
-          <div className="flex flex-col justify-center space-y-8">
-            {contactInfo.map((item) => (
-              <div key={item.label} className="flex items-start gap-5 group">
-                <div className="w-12 h-12 rounded-xl bg-gold/10 flex items-center justify-center text-gold group-hover:bg-gold group-hover:text-white transition-all duration-300 flex-shrink-0">
-                  <item.icon className="w-6 h-6" />
-                </div>
-                <div>
-                  <p className="text-sm text-stone font-medium mb-1">
-                    {item.label}
-                  </p>
-                  {item.action ? (
-                    <a
-                      href={item.action}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="font-display text-charcoal text-lg hover:text-gold transition-colors"
-                    >
-                      {item.value} &rarr;
-                    </a>
-                  ) : (
-                    <p className="font-display text-charcoal text-lg">
-                      {item.value}
+          <div className="flex flex-col justify-center space-y-12">
+            {contactInfo.map((item, index) => (
+              <Reveal key={item.label} delay={300 + index * 100}>
+                <div className="flex items-start gap-6 group">
+                  <div className="w-10 h-10 flex items-center justify-center text-gold transition-colors duration-500">
+                    <item.icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-stone font-semibold tracking-[0.15em] uppercase mb-2">
+                      {item.label}
                     </p>
-                  )}
+                    {item.action ? (
+                      <a
+                        href={item.action}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="font-display text-charcoal text-xl hover:text-gold transition-colors duration-500"
+                      >
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="font-display text-charcoal text-xl font-light leading-snug">
+                        {item.value}
+                      </p>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

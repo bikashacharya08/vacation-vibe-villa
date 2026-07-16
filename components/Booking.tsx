@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import Image from "next/image";
+import Reveal from "./Reveal";
 
 export default function Booking() {
   const [form, setForm] = useState({
@@ -60,68 +61,77 @@ export default function Booking() {
           Send us a booking request and we&rsquo;ll confirm availability within 24 hours.
         </p>
 
-          {error && <p className="bg-red-500/20 text-red-200 text-sm text-center rounded-lg px-4 py-2" role="alert">{error}</p>}
-          <form onSubmit={handleSubmit} className="max-w-2xl mx-auto text-left space-y-4" noValidate>
-          <div className="grid sm:grid-cols-2 gap-4">
-            <div>
-              <label htmlFor="booking-name" className="sr-only">Full Name</label>
-              <input id="booking-name" type="text" placeholder="Full Name" required value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-white/95 text-charcoal placeholder:text-stone/60 focus:outline-none focus:ring-2 focus:ring-gold" />
+        <Reveal delay={200}>
+          {error && <p className="bg-red-500/20 text-red-200 text-sm text-center rounded-none border border-red-500/50 px-4 py-3 mb-6" role="alert">{error}</p>}
+          <form onSubmit={handleSubmit} className="max-w-2xl mx-auto text-left space-y-8" noValidate>
+            <div className="grid sm:grid-cols-2 gap-8">
+              <div className="relative">
+                <input id="booking-name" type="text" placeholder="Full Name *" required value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  className="w-full pb-2 bg-transparent text-white placeholder:text-white/60 border-b border-white/30 focus:border-gold focus:outline-none transition-colors rounded-none" />
+              </div>
+              <div className="relative">
+                <input id="booking-email" type="email" placeholder="Email Address *" required value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  className="w-full pb-2 bg-transparent text-white placeholder:text-white/60 border-b border-white/30 focus:border-gold focus:outline-none transition-colors rounded-none" />
+              </div>
             </div>
-            <div>
-              <label htmlFor="booking-email" className="sr-only">Email</label>
-              <input id="booking-email" type="email" placeholder="Email" required value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-white/95 text-charcoal placeholder:text-stone/60 focus:outline-none focus:ring-2 focus:ring-gold" />
+            
+            <div className="relative">
+              <input id="booking-phone" type="tel" inputMode="tel" placeholder="Phone / WhatsApp *" required value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                className="w-full pb-2 bg-transparent text-white placeholder:text-white/60 border-b border-white/30 focus:border-gold focus:outline-none transition-colors rounded-none" />
             </div>
-          </div>
-          <div>
-            <label htmlFor="booking-phone" className="sr-only">Phone / WhatsApp</label>
-            <input id="booking-phone" type="tel" inputMode="tel" placeholder="Phone / WhatsApp" required value={form.phone}
-              onChange={(e) => setForm({ ...form, phone: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-white/95 text-charcoal placeholder:text-stone/60 focus:outline-none focus:ring-2 focus:ring-gold" />
-          </div>
-          <div className="grid sm:grid-cols-3 gap-4">
-            <div>
-              <label htmlFor="booking-checkin" className="sr-only">Check-in</label>
-              <input id="booking-checkin" type="date" required value={form.checkIn} min={new Date().toISOString().split("T")[0]}
-                onChange={(e) => setForm({ ...form, checkIn: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-white/95 text-charcoal focus:outline-none focus:ring-2 focus:ring-gold" />
+            
+            <div className="grid sm:grid-cols-3 gap-8 items-end">
+              <div className="relative">
+                <label htmlFor="booking-checkin" className="text-white/60 text-xs tracking-widest uppercase mb-1 block">Check-in *</label>
+                <input id="booking-checkin" type="date" required value={form.checkIn} min={new Date().toISOString().split("T")[0]}
+                  onChange={(e) => setForm({ ...form, checkIn: e.target.value })}
+                  className="w-full pb-2 bg-transparent text-white border-b border-white/30 focus:border-gold focus:outline-none transition-colors rounded-none [&::-webkit-calendar-picker-indicator]:filter [&::-webkit-calendar-picker-indicator]:invert" />
+              </div>
+              <div className="relative">
+                <label htmlFor="booking-checkout" className="text-white/60 text-xs tracking-widest uppercase mb-1 block">Check-out *</label>
+                <input id="booking-checkout" type="date" required value={form.checkOut} min={form.checkIn || new Date().toISOString().split("T")[0]}
+                  onChange={(e) => setForm({ ...form, checkOut: e.target.value })}
+                  className="w-full pb-2 bg-transparent text-white border-b border-white/30 focus:border-gold focus:outline-none transition-colors rounded-none [&::-webkit-calendar-picker-indicator]:filter [&::-webkit-calendar-picker-indicator]:invert" />
+              </div>
+              <div className="relative">
+                <label htmlFor="booking-guests" className="text-white/60 text-xs tracking-widest uppercase mb-1 block">Guests *</label>
+                <input id="booking-guests" type="number" min={1} max={4} required value={form.guests}
+                  onChange={(e) => setForm({ ...form, guests: +e.target.value })}
+                  className="w-full pb-2 bg-transparent text-white border-b border-white/30 focus:border-gold focus:outline-none transition-colors rounded-none" />
+              </div>
             </div>
-            <div>
-              <label htmlFor="booking-checkout" className="sr-only">Check-out</label>
-              <input id="booking-checkout" type="date" required value={form.checkOut} min={form.checkIn || new Date().toISOString().split("T")[0]}
-                onChange={(e) => setForm({ ...form, checkOut: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-white/95 text-charcoal focus:outline-none focus:ring-2 focus:ring-gold" />
+            
+            <div className="relative">
+              <input id="booking-message" type="text" placeholder="Special Requests (Optional)" value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                className="w-full pb-2 bg-transparent text-white placeholder:text-white/60 border-b border-white/30 focus:border-gold focus:outline-none transition-colors rounded-none" />
             </div>
-            <div>
-              <label htmlFor="booking-guests" className="sr-only">Guests</label>
-              <input id="booking-guests" type="number" min={1} max={4} required value={form.guests}
-                onChange={(e) => setForm({ ...form, guests: +e.target.value })}
-                className="w-full px-4 py-3 rounded-lg bg-white/95 text-charcoal focus:outline-none focus:ring-2 focus:ring-gold" />
+            
+            <div className="pt-6">
+              <button type="submit" disabled={sending || done}
+                className="w-full bg-white hover:bg-gold text-charcoal hover:text-white px-10 py-5 text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-500 disabled:opacity-50"
+              >
+                {done ? "Request Sent" : sending ? "Sending..." : "Submit Request"}
+              </button>
             </div>
-          </div>
-          <div>
-            <label htmlFor="booking-message" className="sr-only">Message</label>
-            <input id="booking-message" type="text" placeholder="Optional message &mdash; activities, special requests..." value={form.message}
-              onChange={(e) => setForm({ ...form, message: e.target.value })}
-              className="w-full px-4 py-3 rounded-lg bg-white/95 text-charcoal placeholder:text-stone/60 focus:outline-none focus:ring-2 focus:ring-gold" />
-          </div>
-          <button type="submit" disabled={sending || done}
-            className="w-full bg-gold hover:bg-gold/90 text-white px-10 py-4 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-xl hover:shadow-gold/30 disabled:opacity-50">
-            {done ? "Request Sent!" : sending ? "Sending..." : "Request to Book"}
-          </button>
-          {done && (
-            <div className="mt-4 text-white text-sm bg-black/40 backdrop-blur-sm p-5 rounded-xl border border-gold/30">
-              <p className="font-semibold text-lg text-gold mb-1">Thank you for your request!</p>
-              <p className="leading-relaxed">
-                The host will contact you within 12 hours. If you want faster contact, you can text directly on WhatsApp: 
-                <a href="https://wa.me/9779865345753" target="_blank" rel="noopener noreferrer" className="text-gold font-medium hover:underline ml-1">+977-9865345753</a>.
-              </p>
-            </div>
-          )}
-        </form>
+            
+            {done && (
+              <Reveal>
+                <div className="mt-8 text-white text-sm bg-black/40 backdrop-blur-sm p-6 border border-white/20 text-center">
+                  <p className="font-display text-2xl text-gold mb-2">Thank you</p>
+                  <p className="leading-relaxed font-light">
+                    The host will contact you within 12 hours. For an immediate response, please contact us on WhatsApp: 
+                    <br/>
+                    <a href="https://wa.me/9779865345753" target="_blank" rel="noopener noreferrer" className="text-gold font-medium hover:underline mt-2 inline-block tracking-widest">+977-9865345753</a>
+                  </p>
+                </div>
+              </Reveal>
+            )}
+          </form>
+        </Reveal>
       </div>
     </section>
   );
