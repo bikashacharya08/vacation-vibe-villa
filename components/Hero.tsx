@@ -15,19 +15,19 @@ export default function Hero() {
         priority
         className="object-cover scale-105"
       />
-      {/* Lighter overlay for a brighter, more luxurious feel */}
-      <div className="absolute inset-0 z-[1] bg-black/20" />
-      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/50 via-transparent to-black/60" />
+      {/* Darker overlay to make the white text pop */}
+      <div className="absolute inset-0 z-[1] bg-black/30" />
+      <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/60 via-black/20 to-black/70" />
 
       <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center mt-12">
         <Reveal delay={100}>
-          <p className="text-white font-medium text-xs md:text-sm tracking-[0.4em] uppercase mb-6 opacity-90">
+          <p className="text-white font-medium text-xs md:text-sm tracking-[0.4em] uppercase mb-6 opacity-90 drop-shadow-md">
             Sauraha, Chitwan — Nepal
           </p>
         </Reveal>
         
         <Reveal delay={300}>
-          <h1 className="text-white font-display text-6xl md:text-8xl lg:text-9xl leading-[1.1] mb-8 drop-shadow-sm">
+          <h1 className="text-white font-display text-6xl md:text-8xl lg:text-9xl leading-[1.1] mb-8 drop-shadow-2xl">
             Vacation Vibe
             <br />
             <span className="italic font-light">Villa</span>
@@ -35,7 +35,7 @@ export default function Hero() {
         </Reveal>
         
         <Reveal delay={500}>
-          <p className="text-white/90 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 drop-shadow-sm">
+          <p className="text-white/95 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 drop-shadow-lg">
             Your gateway to authentic Nepali village life, just minutes from
             Chitwan National Park. A sanctuary of peace, nature, and golden sunsets.
           </p>
