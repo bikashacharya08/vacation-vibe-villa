@@ -83,14 +83,13 @@ export default function Location() {
 
           <div className="relative md:sticky md:top-32">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d23207.33383454832!2d85.3377024!3d27.755813800000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x3994ef041852b5df%3A0x33e027907a69152e!2sVacation%20Vibe%20Villa%2C%2006%20Bacchauli%20Road%2C%20Ratnanagar%2044204!3m2!1d27.5851908!2d84.5051338!5e1!3m2!1sen!2snp!4v1784145976518!5m2!1sen!2snp"
-                width="100%"
-                height="100%"
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.4499126519586!2d84.50255897445139!3d27.585195530870255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994ef041852b5df%3A0x33e027907a69152e!2sVacation%20Vibe%20Villa!5e1!3m2!1sen!2snp!4v1784183513535!5m2!1sen!2snp" 
+                width="100%" 
+                height="100%" 
                 style={{ border: 0, minHeight: "400px" }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen 
+                loading="lazy" 
+                referrerPolicy="strict-origin-when-cross-origin"
                 title="Vacation Vibe Villa Location"
               />
             </div>

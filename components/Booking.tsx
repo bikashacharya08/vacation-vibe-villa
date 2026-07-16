@@ -85,19 +85,19 @@ export default function Booking() {
           <div className="grid sm:grid-cols-3 gap-4">
             <div>
               <label htmlFor="booking-checkin" className="sr-only">Check-in</label>
-              <input id="booking-checkin" type="date" required value={form.checkIn}
+              <input id="booking-checkin" type="date" required value={form.checkIn} min={new Date().toISOString().split("T")[0]}
                 onChange={(e) => setForm({ ...form, checkIn: e.target.value })}
                 className="w-full px-4 py-3 rounded-lg bg-white/95 text-charcoal focus:outline-none focus:ring-2 focus:ring-gold" />
             </div>
             <div>
               <label htmlFor="booking-checkout" className="sr-only">Check-out</label>
-              <input id="booking-checkout" type="date" required value={form.checkOut}
+              <input id="booking-checkout" type="date" required value={form.checkOut} min={form.checkIn || new Date().toISOString().split("T")[0]}
                 onChange={(e) => setForm({ ...form, checkOut: e.target.value })}
                 className="w-full px-4 py-3 rounded-lg bg-white/95 text-charcoal focus:outline-none focus:ring-2 focus:ring-gold" />
             </div>
             <div>
               <label htmlFor="booking-guests" className="sr-only">Guests</label>
-              <input id="booking-guests" type="number" min={1} max={20} required value={form.guests}
+              <input id="booking-guests" type="number" min={1} max={4} required value={form.guests}
                 onChange={(e) => setForm({ ...form, guests: +e.target.value })}
                 className="w-full px-4 py-3 rounded-lg bg-white/95 text-charcoal focus:outline-none focus:ring-2 focus:ring-gold" />
             </div>

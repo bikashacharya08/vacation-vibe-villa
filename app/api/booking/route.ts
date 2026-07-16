@@ -9,7 +9,7 @@ const schema = z.object({
   phone: z.string().min(1).max(50),
   checkIn: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Invalid check-in date format"),
   checkOut: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Invalid check-out date format"),
-  guests: z.number().int().min(1).max(50),
+  guests: z.number().int().min(1).max(4, "Maximum 4 guests allowed"),
   message: z.string().max(5000).default(""),
 });
 

@@ -47,7 +47,7 @@ export default function About() {
           <div className="relative">
             <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative">
               <Image
-                src="/images/about-villa.jpg"
+                src="/images/HOUSE_FRONT.JPG"
                 alt="Vacation Vibe Villa"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"

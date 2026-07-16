@@ -60,6 +60,26 @@ export default function AdminDashboard() {
     setTimeout(() => setActionMsg(null), 3000);
   };
 
+  const deleteMessage = async (id: number) => {
+    if (!confirm("Are you sure you want to delete this message?")) return;
+    const res = await fetch(`/api/admin/messages?id=${id}`, { method: "DELETE" });
+    if (res.ok) {
+      setMessages((prev) => prev.filter((m) => m.id !== id));
+      setActionMsg(`Message deleted`);
+      setTimeout(() => setActionMsg(null), 3000);
+    }
+  };
+
+  const deleteBooking = async (id: number) => {
+    if (!confirm("Are you sure you want to delete this booking?")) return;
+    const res = await fetch(`/api/admin/bookings?id=${id}`, { method: "DELETE" });
+    if (res.ok) {
+      setBookings((prev) => prev.filter((b) => b.id !== id));
+      setActionMsg(`Booking deleted`);
+      setTimeout(() => setActionMsg(null), 3000);
+    }
+  };
+
   const logout = async () => {
     await fetch("/api/admin/logout", { method: "POST" });
     router.push("/admin/login");
@@ -94,6 +114,25 @@ export default function AdminDashboard() {
       )}
 
       <main className="max-w-6xl mx-auto px-6 py-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+          <div className="bg-white rounded-xl p-4 shadow-sm border border-sand">
+            <p className="text-sm text-stone mb-1">Total Bookings</p>
+            <p className="text-2xl font-display text-charcoal">{bookings.length}</p>
+          </div>
+          <div className="bg-white rounded-xl p-4 shadow-sm border border-sand">
+            <p className="text-sm text-stone mb-1">Pending Bookings</p>
+            <p className="text-2xl font-display text-amber-600">{bookings.filter((b) => b.status === "pending").length}</p>
+          </div>
+          <div className="bg-white rounded-xl p-4 shadow-sm border border-sand">
+            <p className="text-sm text-stone mb-1">Total Messages</p>
+            <p className="text-2xl font-display text-charcoal">{messages.length}</p>
+          </div>
+          <div className="bg-white rounded-xl p-4 shadow-sm border border-sand">
+            <p className="text-sm text-stone mb-1">Unread Messages</p>
+            <p className="text-2xl font-display text-gold">{messages.filter((m) => !m.read).length}</p>
+          </div>
+        </div>
+
         {tab === "messages" && (
           <div className="space-y-4">
             {messages.length === 0 && <p className="text-stone text-center py-12">No messages yet.</p>}
@@ -107,10 +146,14 @@ export default function AdminDashboard() {
                   <span className="text-xs text-stone">{new Date(msg.createdAt).toLocaleDateString()}</span>
                 </div>
                 <p className="text-stone mt-3 whitespace-pre-wrap">{msg.message}</p>
-                {!msg.read && (
-                  <button onClick={() => markRead(msg.id)}
-                    className="mt-3 text-xs text-gold hover:underline">Mark as read</button>
-                )}
+                <div className="mt-4 flex items-center gap-4">
+                  {!msg.read && (
+                    <button onClick={() => markRead(msg.id)}
+                      className="text-xs text-gold hover:underline font-medium">Mark as read</button>
+                  )}
+                  <button onClick={() => deleteMessage(msg.id)}
+                    className="text-xs text-red-500 hover:underline font-medium">Delete message</button>
+                </div>
               </div>
             ))}
           </div>
@@ -120,35 +163,42 @@ export default function AdminDashboard() {
           <div className="space-y-4">
             {bookings.length === 0 && <p className="text-stone text-center py-12">No bookings yet.</p>}
             {bookings.map((b) => (
-              <div key={b.id} className="bg-white rounded-xl p-6 shadow-sm">
+              <div key={b.id} className="bg-white rounded-xl p-6 shadow-sm border border-sand/50 hover:shadow-md transition-shadow">
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <p className="font-semibold text-charcoal">{b.name}</p>
+                    <p className="font-semibold text-charcoal text-lg">{b.name}</p>
                     <p className="text-sm text-stone">{b.email} {b.phone && `· ${b.phone}`}</p>
                   </div>
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium uppercase tracking-wider ${
                     b.status === "confirmed" ? "bg-green-100 text-green-700" :
                     b.status === "cancelled" ? "bg-red-100 text-red-700" :
                     "bg-amber-100 text-amber-700"}`}>
                     {b.status}
                   </span>
                 </div>
-                <div className="grid sm:grid-cols-4 gap-3 text-sm text-stone mb-3">
-                  <div><span className="font-medium text-charcoal">Check-in:</span> <time>{b.checkIn}</time></div>
-                  <div><span className="font-medium text-charcoal">Check-out:</span> <time>{b.checkOut}</time></div>
-                  <div><span className="font-medium text-charcoal">Guests:</span> {b.guests}</div>
-                  <div><span className="font-medium text-charcoal">Received:</span> {new Date(b.createdAt).toLocaleDateString()}</div>
+                <div className="bg-sand/30 rounded-lg p-4 grid sm:grid-cols-4 gap-3 text-sm text-stone mb-4">
+                  <div><span className="font-medium text-charcoal block mb-0.5">Check-in</span> <time>{b.checkIn}</time></div>
+                  <div><span className="font-medium text-charcoal block mb-0.5">Check-out</span> <time>{b.checkOut}</time></div>
+                  <div><span className="font-medium text-charcoal block mb-0.5">Guests</span> {b.guests}</div>
+                  <div><span className="font-medium text-charcoal block mb-0.5">Received</span> {new Date(b.createdAt).toLocaleDateString()}</div>
                 </div>
-                {b.message && <p className="text-stone text-sm mb-3">{b.message}</p>}
-                <div className="flex gap-2">
+                {b.message && <p className="text-stone text-sm mb-4 italic">"{b.message}"</p>}
+                
+                <div className="flex gap-2 flex-wrap items-center">
+                  <a href={`mailto:${b.email}?subject=Vacation Vibe Villa - Booking Status`}
+                    className="px-4 py-1.5 bg-blue-50 text-blue-600 rounded-lg text-xs font-medium hover:bg-blue-100 transition-colors">
+                    Email Guest
+                  </a>
                   {b.status === "pending" && (
                     <>
                       <button onClick={() => updateStatus(b.id, "confirmed")}
-                        className="px-4 py-1.5 bg-green-600 text-white rounded-lg text-xs font-medium hover:bg-green-700 transition-colors">Confirm</button>
+                        className="px-4 py-1.5 bg-green-600 text-white rounded-lg text-xs font-medium hover:bg-green-700 transition-colors shadow-sm">Confirm</button>
                       <button onClick={() => updateStatus(b.id, "cancelled")}
-                        className="px-4 py-1.5 bg-red-500 text-white rounded-lg text-xs font-medium hover:bg-red-600 transition-colors">Decline</button>
+                        className="px-4 py-1.5 bg-red-50 text-red-600 rounded-lg text-xs font-medium hover:bg-red-100 transition-colors">Decline</button>
                     </>
                   )}
+                  <button onClick={() => deleteBooking(b.id)}
+                    className="ml-auto px-4 py-1.5 border border-red-200 text-red-500 rounded-lg text-xs font-medium hover:bg-red-50 transition-colors">Delete</button>
                 </div>
               </div>
             ))}
