@@ -34,8 +34,8 @@ export default function About() {
           </div>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-stretch mb-32">
-          <Reveal delay={200} className="flex flex-col justify-between h-full py-2">
+        <div className="max-w-3xl mx-auto mb-32 text-center">
+          <Reveal delay={200} className="flex flex-col gap-6 py-2">
             <p className="text-stone text-[17px] md:text-xl font-light leading-relaxed">
               Vacation Vibe Villa is a cozy 2-bedroom home on Bacchauli Road, Ratnanagar, Sauraha, Chitwan
               &mdash; your gateway to authentic Nepali village life. With a fully
@@ -43,7 +43,7 @@ export default function About() {
               overlooking greenery, it&rsquo;s the perfect base for exploring
               Chitwan National Park and the surrounding wonders of Nepal.
             </p>
-            <p className="text-stone text-[17px] md:text-xl font-light leading-relaxed my-6 md:my-0">
+            <p className="text-stone text-[17px] md:text-xl font-light leading-relaxed">
               Step outside and you&rsquo;ll find our little farm, a fish pond,
               and the warm hospitality of a real Nepali neighborhood. Whether
               you are here for a jungle safari, a cultural village tour, or
@@ -54,18 +54,6 @@ export default function About() {
               buses stop right at our gate &mdash; and we can arrange airport pickups
               too.
             </p>
-          </Reveal>
-
-          <Reveal delay={400} className="relative h-full min-h-[300px] md:min-h-[450px] w-full mt-8 md:mt-0">
-            <div className="h-full w-full overflow-hidden relative border border-charcoal/5 shadow-2xl rounded-sm">
-              <Image
-                src="/images/HOUSE_FRONT.JPG"
-                alt="Vacation Vibe Villa"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-              />
-            </div>
           </Reveal>
         </div>
 

@@ -1,6 +1,8 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Activities from "@/components/Activities";
+import EthicalSafari from "@/components/EthicalSafari";
 import Amenities from "@/components/Amenities";
 import Gallery from "@/components/Gallery";
 import Booking from "@/components/Booking";
@@ -16,6 +18,8 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <Activities />
+        <EthicalSafari />
         <Amenities />
         <Gallery />
         <Booking />

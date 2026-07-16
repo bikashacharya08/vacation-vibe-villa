@@ -5,9 +5,9 @@ const attractions = [
     desc: "A UNESCO World Heritage site — jungle safaris, rhinos, tigers, crocodiles, and 500+ bird species.",
   },
   {
-    name: "Elephant Safari & Breeding Center",
+    name: "Elephant Breeding Center",
     distance: "10 min",
-    desc: "Experience an elephant-back safari and visit the government elephant breeding center in Sauraha.",
+    desc: "Visit the government elephant breeding center in Sauraha and learn about elephant conservation.",
   },
   {
     name: "Rapti River & Canoeing",

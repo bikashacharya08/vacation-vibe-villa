@@ -5,11 +5,13 @@ import Image from "next/image";
 
 const navLinksLeft = [
   { label: "About", href: "#about" },
+  { label: "Activities", href: "#activities" },
   { label: "Amenities", href: "#amenities" },
   { label: "Gallery", href: "#gallery" },
 ];
 
 const navLinksRight = [
+  { label: "Safari", href: "#ethical-safari" },
   { label: "Location", href: "#location" },
   { label: "Contact", href: "#contact" },
 ];

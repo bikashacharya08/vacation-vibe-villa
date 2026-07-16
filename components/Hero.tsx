@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Reveal from "./Reveal";
 
 export default function Hero() {
@@ -7,14 +6,16 @@ export default function Hero() {
       id="hero"
       className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden"
     >
-      <Image
-        src="/images/hero-bg.jpg"
-        alt="Vacation Vibe Villa"
-        fill
-        sizes="100vw"
-        priority
-        className="object-cover scale-105"
-      />
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover scale-105 z-0"
+        poster="/images/hero-jungle.png"
+      >
+        <source src="/images/IMG_1627.mp4" type="video/mp4" />
+      </video>
       {/* Darker overlay to make the white text pop */}
       <div className="absolute inset-0 z-[1] bg-black/30" />
       <div className="absolute inset-0 z-[1] bg-gradient-to-b from-black/60 via-black/20 to-black/70" />

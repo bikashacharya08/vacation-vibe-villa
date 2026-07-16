@@ -39,7 +39,7 @@ export default function Booking() {
   return (
     <section id="booking" className="relative py-28 md:py-36 px-6 overflow-hidden">
       <Image
-        src="/images/booking-bg.jpg"
+        src="/images/bishajar.jpg"
         alt=""
         fill
         sizes="100vw"
