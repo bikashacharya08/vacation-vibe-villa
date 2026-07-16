@@ -139,11 +139,20 @@ export default function Contact() {
               </div>
               <button
                 type="submit"
-                disabled={sending}
+                disabled={sending || done}
                 className="w-full bg-charcoal hover:bg-charcoal/90 text-white px-10 py-4 rounded-xl text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-xl disabled:opacity-50"
               >
                 {done ? "Message Sent!" : sending ? "Sending..." : "Send Message"}
               </button>
+              {done && (
+                <div className="mt-4 text-charcoal text-sm bg-gold/10 p-5 rounded-xl border border-gold/30">
+                  <p className="font-semibold text-lg mb-1">Message received!</p>
+                  <p className="leading-relaxed">
+                    The host will contact you within 12 hours. If you want faster contact, you can text directly on WhatsApp: 
+                    <a href="https://wa.me/9779865345753" target="_blank" rel="noopener noreferrer" className="text-gold font-medium hover:underline ml-1">+977-9865345753</a>.
+                  </p>
+                </div>
+              )}
             </form>
           </div>
 

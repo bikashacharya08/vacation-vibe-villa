@@ -108,10 +108,19 @@ export default function Booking() {
               onChange={(e) => setForm({ ...form, message: e.target.value })}
               className="w-full px-4 py-3 rounded-lg bg-white/95 text-charcoal placeholder:text-stone/60 focus:outline-none focus:ring-2 focus:ring-gold" />
           </div>
-          <button type="submit" disabled={sending}
+          <button type="submit" disabled={sending || done}
             className="w-full bg-gold hover:bg-gold/90 text-white px-10 py-4 rounded-full text-base font-semibold tracking-wide transition-all duration-300 hover:shadow-xl hover:shadow-gold/30 disabled:opacity-50">
             {done ? "Request Sent!" : sending ? "Sending..." : "Request to Book"}
           </button>
+          {done && (
+            <div className="mt-4 text-white text-sm bg-black/40 backdrop-blur-sm p-5 rounded-xl border border-gold/30">
+              <p className="font-semibold text-lg text-gold mb-1">Thank you for your request!</p>
+              <p className="leading-relaxed">
+                The host will contact you within 12 hours. If you want faster contact, you can text directly on WhatsApp: 
+                <a href="https://wa.me/9779865345753" target="_blank" rel="noopener noreferrer" className="text-gold font-medium hover:underline ml-1">+977-9865345753</a>.
+              </p>
+            </div>
+          )}
         </form>
       </div>
     </section>

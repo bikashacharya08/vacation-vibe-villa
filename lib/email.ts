@@ -17,7 +17,7 @@ export async function sendEmail({
   try {
     await resend.emails.send({
       from: "Vacation Vibe Villa <onboarding@resend.dev>",
-      to: "livewithbikki@gmail.com",
+      to: "bikashacharya08@gmail.com",
       subject,
       html,
     });
