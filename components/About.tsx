@@ -34,30 +34,30 @@ export default function About() {
           </div>
         </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-center mb-32">
-          <Reveal delay={200}>
-            <p className="text-stone text-lg md:text-xl font-light leading-relaxed mb-6">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-stretch mb-32">
+          <Reveal delay={200} className="flex flex-col justify-between h-full py-2">
+            <p className="text-stone text-[17px] md:text-xl font-light leading-relaxed">
               Vacation Vibe Villa is a cozy 2-bedroom home on Bacchauli Road, Ratnanagar, Sauraha, Chitwan
               &mdash; your gateway to authentic Nepali village life. With a fully
               equipped kitchen, comfortable living room, and a balcony
               overlooking greenery, it&rsquo;s the perfect base for exploring
               Chitwan National Park and the surrounding wonders of Nepal.
             </p>
-            <p className="text-stone text-lg md:text-xl font-light leading-relaxed mb-6">
+            <p className="text-stone text-[17px] md:text-xl font-light leading-relaxed my-6 md:my-0">
               Step outside and you&rsquo;ll find our little farm, a fish pond,
               and the warm hospitality of a real Nepali neighborhood. Whether
               you are here for a jungle safari, a cultural village tour, or
               simply to unwind with a book on the balcony, this is your space.
             </p>
-            <p className="text-stone text-lg md:text-xl font-light leading-relaxed">
+            <p className="text-stone text-[17px] md:text-xl font-light leading-relaxed">
               Up to 4 guests can stay comfortably. Tourist
               buses stop right at our gate &mdash; and we can arrange airport pickups
               too.
             </p>
           </Reveal>
 
-          <Reveal delay={400} className="relative">
-            <div className="aspect-[4/3] overflow-hidden relative border border-charcoal/5">
+          <Reveal delay={400} className="relative h-full min-h-[300px] md:min-h-[450px] w-full mt-8 md:mt-0">
+            <div className="h-full w-full overflow-hidden relative border border-charcoal/5 shadow-2xl rounded-sm">
               <Image
                 src="/images/HOUSE_FRONT.JPG"
                 alt="Vacation Vibe Villa"
