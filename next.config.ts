@@ -7,7 +7,7 @@ const CSP = [
   "img-src 'self' data: blob: https:",
   "font-src 'self' https://fonts.gstatic.com",
   "connect-src 'self' https://api.vercel.com",
-  "frame-src 'self'",
+  "frame-src 'self' https://www.google.com",
   "base-uri 'self'",
   "form-action 'self'",
 ].join("; ");
