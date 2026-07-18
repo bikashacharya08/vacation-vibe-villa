@@ -7,6 +7,7 @@ A world-class, luxury front-end and admin dashboard for **Vacation Vibe Villa**,
 - **Luxury Aesthetic:** Cream, Gold, and Charcoal palette with cinematic "Reveal" scroll animations across the entire site.
 - **Concierge Booking:** Minimalist, high-end booking and contact forms that send email notifications directly to the admin via Resend, and encourage immediate WhatsApp contact.
 - **Admin Dashboard:** Secure, JWT-authenticated dashboard (`/admin`) to view, manage, and delete booking requests and contact messages.
+- **Ethical Safaris:** Dedicated to ethical wildlife experiences, avoiding elephant back safaris and promoting jeep and walking tours.
 - **Digital Bird Book:** An integrated, fully offline-capable PWA field guide to the birds of Chitwan National Park (`/birds_of_cnp/index.html`), installable directly to a mobile device.
 - **Performance Optimized:** Built on Next.js 15 App Router with Tailwind CSS v4, utilizing heavily optimized React Server Components and Edge-friendly static rendering where applicable.
 
@@ -32,6 +33,7 @@ A world-class, luxury front-end and admin dashboard for **Vacation Vibe Villa**,
 │   ├── Reveal.tsx       # Core scroll-animation wrapper component
 │   ├── Hero.tsx         # Cinematic Hero with text contrast optimization
 │   ├── About.tsx        # Features the Namaste intro and Bird Book card
+│   ├── EthicalSafari.tsx# Dedication to ethical safari experiences
 │   ├── Booking.tsx      # Concierge-style booking form
 │   └── Contact.tsx      # Concierge-style contact form
 ├── lib/

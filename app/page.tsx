@@ -7,15 +7,15 @@ import Amenities from "@/components/Amenities";
 import Gallery from "@/components/Gallery";
 import Booking from "@/components/Booking";
 import Reviews from "@/components/Reviews";
+import TravelGuides from "@/components/TravelGuides";
 import Location from "@/components/Location";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Activities />
@@ -24,8 +24,8 @@ export default function Home() {
         <Gallery />
         <Booking />
         <Reviews />
+        <TravelGuides />
         <Location />
-        <Contact />
       </main>
       <Footer />
     </>

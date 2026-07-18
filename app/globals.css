@@ -57,3 +57,86 @@ h1, h2, h3, h4 {
 .animate-in {
   animation: fadeInUp 0.6s ease-out forwards;
 }
+
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.75rem 1.25rem;
+  background-color: #c9a96e;
+  color: #2c2c2c;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 0.25rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: top 0.2s ease;
+}
+
+.skip-to-content:focus {
+  top: 1rem;
+  outline: 2px solid #2c2c2c;
+  outline-offset: 2px;
+}
+
+:focus-visible {
+  outline: 2px solid #c9a96e;
+  outline-offset: 2px;
+  border-radius: 0.125rem;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #c9a96e;
+  outline-offset: 2px;
+  border-radius: 0.125rem;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  border-color: #c9a96e;
+  box-shadow: 0 0 0 2px rgba(201, 169, 110, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.pattern-dots {
+  background-image: radial-gradient(rgba(201, 169, 110, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.pattern-leaves {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c-5 10-15 15-15 25 0 10 10 20 15 25 5-5 15-15 15-25 0-10-10-15-15-25z' fill='none' stroke='%23c9a96e' stroke-opacity='0.08' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+.touch-friendly-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.touch-friendly-scroll::-webkit-scrollbar-track {
+  background: rgba(201, 169, 110, 0.1);
+  border-radius: 3px;
+}
+
+.touch-friendly-scroll::-webkit-scrollbar-thumb {
+  background: rgba(201, 169, 110, 0.4);
+  border-radius: 3px;
+}

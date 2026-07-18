@@ -1,4 +1,5 @@
 import { StarIcon } from "./Icons";
+import Reveal from "./Reveal";
 
 const reviews = [
   {
@@ -46,9 +47,9 @@ const reviews = [
 
 function StarRating({ rating }: { rating: number }) {
   return (
-    <div className="flex gap-1">
+    <div className="flex gap-1 flex-shrink-0" aria-label={`Rating: ${rating} out of 5 stars`}>
       {Array.from({ length: rating }).map((_, i) => (
-        <StarIcon key={i} className="w-4 h-4 text-gold" />
+        <StarIcon key={i} className="w-3.5 h-3.5 md:w-4 md:h-4 text-gold flex-shrink-0" />
       ))}
     </div>
   );
@@ -56,59 +57,68 @@ function StarRating({ rating }: { rating: number }) {
 
 export default function Reviews() {
   return (
-    <section id="reviews" className="py-28 md:py-36 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-gold font-medium text-sm tracking-[0.25em] uppercase mb-4">
-            Guest Reviews
-          </p>
-          <h2 className="font-display text-4xl md:text-5xl text-charcoal leading-tight mb-4">
-            Loved by travelers
-            <br />
-            <span className="text-gold">from around the world</span>
-          </h2>
-        </div>
+    <section id="reviews" className="py-16 md:py-32 px-4 sm:px-6 bg-white overflow-x-hidden">
+      <div className="max-w-7xl mx-auto min-w-0">
+        <Reveal>
+          <div className="text-center mb-10 md:mb-20">
+            <p className="text-gold font-medium text-sm tracking-[0.25em] uppercase mb-4">
+              Guest Reviews
+            </p>
+            <h2 className="font-display text-2xl sm:text-3xl md:text-5xl text-charcoal leading-tight mb-4 break-words">
+              Loved by travelers
+              <br />
+              <span className="text-gold">from around the world</span>
+            </h2>
+          </div>
+        </Reveal>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {reviews.map((review) => (
-            <div
-              key={review.name}
-              className="p-8 rounded-2xl bg-cream border border-sand hover:border-gold/20 transition-all duration-300"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center text-gold font-semibold text-sm">
-                  {review.avatar}
+        <div className="grid md:grid-cols-2 gap-4 md:gap-6 min-w-0">
+          {reviews.map((review, index) => (
+            <Reveal key={review.name} delay={index * 100} className="min-w-0">
+              <div
+                className={`p-4 md:p-8 rounded-2xl border transition-all duration-300 hover:shadow-lg hover:-translate-y-1 min-w-0 ${
+                  index % 2 === 0
+                    ? "bg-cream border-sand hover:border-gold/20"
+                    : "bg-white border-charcoal/10 hover:border-gold/20"
+                }`}
+              >
+                <div className="flex items-start gap-3 md:gap-4 mb-3 md:mb-4 min-w-0">
+                  <div className="w-9 h-9 md:w-12 md:h-12 rounded-full bg-gold/20 flex items-center justify-center text-gold font-semibold text-xs md:text-sm flex-shrink-0">
+                    {review.avatar}
+                  </div>
+                  <div className="flex-1 min-w-0 pt-0.5 overflow-hidden">
+                    <p className="font-display text-charcoal font-semibold text-sm md:text-base truncate">
+                      {review.name}
+                    </p>
+                    <p className="text-stone text-xs md:text-sm truncate">
+                      {review.location}{!review.noLocation && review.date ? " · " : ""}{review.date}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-display text-charcoal font-semibold">
-                    {review.name}
-                  </p>
-                  <p className="text-stone text-sm">
-                    {review.location}{!review.noLocation && review.date ? " · " : ""}{review.date}
-                  </p>
-                </div>
-                <div className="ml-auto">
+                <div className="mb-3 md:mb-4">
                   <StarRating rating={review.rating} />
                 </div>
+                <p className="text-stone leading-relaxed text-sm md:text-base break-words min-w-0">&ldquo;{review.text}&rdquo;</p>
               </div>
-              <p className="text-stone leading-relaxed">&ldquo;{review.text}&rdquo;</p>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <div className="inline-flex items-center gap-8 px-8 py-4 rounded-full bg-sand">
-            <div className="text-center">
-              <p className="text-2xl font-display text-gold">4.86</p>
-              <p className="text-xs text-stone">Average Rating</p>
-            </div>
-            <div className="w-px h-8 bg-gold/20" />
-            <div className="text-center">
-              <p className="text-2xl font-display text-gold">23</p>
-              <p className="text-xs text-stone">Reviews</p>
+        <Reveal delay={300}>
+          <div className="text-center mt-10 md:mt-16">
+            <div className="inline-flex flex-wrap items-center justify-center gap-3 md:gap-8 px-4 md:px-8 py-3 md:py-5 rounded-full bg-sand border border-gold/10 shadow-sm">
+              <div className="text-center">
+                <p className="text-lg md:text-3xl font-display text-gold">4.86</p>
+                <p className="text-xs text-stone">Average Rating</p>
+              </div>
+              <div className="w-px h-8 md:h-10 bg-gold/20" />
+              <div className="text-center">
+                <p className="text-lg md:text-3xl font-display text-gold">23</p>
+                <p className="text-xs text-stone">Reviews</p>
+              </div>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

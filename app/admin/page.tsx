@@ -56,7 +56,7 @@ export default function AdminDashboard() {
       body: JSON.stringify({ id, status }),
     });
     setBookings((prev) => prev.map((b) => (b.id === id ? { ...b, status } : b)));
-    setActionMsg(`Booking #${id} ${status}`);
+    setActionMsg(`Booking #${id} ${status}${status === "confirmed" ? " — confirmation email sent" : ""}`);
     setTimeout(() => setActionMsg(null), 3000);
   };
 
