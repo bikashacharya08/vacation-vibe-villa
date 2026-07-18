@@ -28,7 +28,7 @@ const images = [
   { src: "/images/animal-of-cnp/IMG_5491.JPG", alt: "Monitor lizard" },
   { src: "/images/animal-of-cnp/IMG_5492.JPG", alt: "Openbill stork" },
   { src: "/images/animal-of-cnp/IMG_5493.JPG", alt: "Cotton Bugs" },
-  { src: "/images/animal-of-cnp/IMG_5494.JPG", alt: "Wild elephant sighting" },
+  { src: "/images/animal-of-cnp/IMG_5494.JPG", alt: "Goosanders" },
   { src: "/images/animal-of-cnp/IMG_5495.JPG", alt: "A lonely Bird" },
   { src: "/images/animal-of-cnp/IMG_5496.JPG", alt: "A Flying Heron" },
   { src: "/images/animal-of-cnp/IMG_5497.JPG", alt: "Bird watching on the riverbank" },
