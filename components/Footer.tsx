@@ -9,8 +9,8 @@ const quickLinks = [
 ];
 
 const contactLinks = [
-  { label: "06 Bacchauli Road, Ratnanagar 44204", href: "https://maps.app.goo.gl/3fD3dZQ4uVz7LxgR9" },
-  { label: "Chitwan, Bagmati Province, Nepal", href: "https://maps.app.goo.gl/3fD3dZQ4uVz7LxgR9" },
+  { label: "06 Bacchauli Road, Ratnanagar 44204", href: "https://www.google.com/maps/place/Vacation+Vibe+Villa/@27.5851955,84.502559,17z" },
+  { label: "Chitwan, Bagmati Province, Nepal", href: "https://www.google.com/maps/place/Vacation+Vibe+Villa/@27.5851955,84.502559,17z" },
 ];
 
 export default function Footer() {

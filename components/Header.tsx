@@ -46,7 +46,7 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-6 py-2.5 flex justify-between items-center">
           <div className="flex items-center gap-6">
             <a
-              href="https://maps.app.goo.gl/3fD3dZQ4uVz7LxgR9"
+              href="https://www.google.com/maps/place/Vacation+Vibe+Villa/@27.5851955,84.502559,17z"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 hover:text-gold transition-colors focus-visible:outline-offset-2"

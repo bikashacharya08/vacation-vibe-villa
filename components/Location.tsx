@@ -99,7 +99,7 @@ export default function Location() {
             </div>
 
             <a
-              href="https://maps.app.goo.gl/3fD3dZQ4uVz7LxgR9"
+              href="https://www.google.com/maps/place/Vacation+Vibe+Villa/@27.5851955,84.502559,17z"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 flex items-center justify-center gap-2 min-h-[48px] w-full bg-charcoal hover:bg-gold text-white px-6 py-3 text-xs font-semibold tracking-[0.2em] uppercase transition-colors duration-500 rounded-lg"
